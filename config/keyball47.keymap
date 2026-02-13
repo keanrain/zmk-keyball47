@@ -12,6 +12,8 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include <dt-bindings/zmk/display.h>
+
 
 &lt {
     tapping-term-ms = <240>;
@@ -28,9 +30,48 @@
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
 
 / {
+    // 定义全局状态变量：记录OLED当前状态（0=休眠，1=正常）
+    oled_state: oled_state {
+        compatible = "zmk,behavior-state";
+        #binding-cells = <0>;
+        initial_value = <1>; // 初始状态：正常显示
+    };
+
     // custom shift using mod-morph
 
     behaviors {
+        // 自定义：OLED休眠行为（仅在正常状态下生效）
+        oled_sleep: oled_sleep {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                // 1. 检查当前状态为"正常"（值=1）
+                &cond_equals &oled_state 1
+                // 2. 满足条件则发送休眠命令0xAE
+                &display_cmd 0xAE
+                // 3. 将状态标记为"休眠"（值=0）
+                &state_set &oled_state 0
+                // 4. 不执行默认的显示唤醒逻辑
+                &nop
+            >;
+        };
+
+        // 自定义：OLED唤醒行为（仅在休眠状态下生效）
+        oled_wake: oled_wake {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                // 1. 检查当前状态为"休眠"（值=0）
+                &cond_equals &oled_state 0
+                // 2. 满足条件则发送唤醒命令0xAF
+                &display_cmd 0xAF
+                // 3. 将状态标记为"正常"（值=1）
+                &state_set &oled_state 1
+                // 4. 不执行默认的显示唤醒逻辑
+                &nop
+            >;
+        };
+        // 其他操作
         cmqus: comma_question {
             compatible = "zmk,behavior-mod-morph";
             label = "COMMA_QUESTION";
@@ -65,10 +106,10 @@
         default_layer {
             label = "QWRT";
             bindings = <
-&kp A  &kp A  &kp A  &kp A  &kp A  &kp A                  &kp A  &kp A  &kp A  &kp A  &kp A  &kp A
-&kp A  &kp A  &kp A  &kp A  &kp A  &kp A                  &kp A  &kp A  &kp A  &kp A  &kp A  &kp A
-&kp A  &kp A  &kp A  &kp A  &kp A  &kp A                  &kp A  &kp A  &kp A  &kp A  &kp A  &kp A
-&kp A  &kp A  &kp A  &kp A  &kp A  &kp A  &kp A    &kp A  &kp A                       &kp A  &kp A
+&oled_sleep &kp A  &kp A  &kp A  &kp A  &kp A                  &kp A  &kp A  &kp A  &kp A  &kp A  &kp A
+&oled_wake  &kp A  &kp A  &kp A  &kp A  &kp A                  &kp A  &kp A  &kp A  &kp A  &kp A  &kp A
+&kp A       &kp A  &kp A  &kp A  &kp A  &kp A                  &kp A  &kp A  &kp A  &kp A  &kp A  &kp A
+&kp A       &kp A  &kp A  &kp A  &kp A  &kp A  &kp A    &kp A  &kp A                       &kp A  &kp A
             >;
         };
 
@@ -133,3 +174,8 @@
         };
     };
 };
+
+
+
+
+
