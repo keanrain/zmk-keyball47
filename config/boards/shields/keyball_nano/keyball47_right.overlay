@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2020 ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "keyball47.dtsi"
+#include "keyball_pmw3610.dtsi"
+#include "keyball_pointer.dtsi"
+
+&default_transform {
+    col-offset = <7>;
+};
+
+&kscan0 {
+	col-gpios
+		= <&gpio0 8  GPIO_ACTIVE_HIGH>
+		, <&gpio0 22 GPIO_ACTIVE_HIGH>
+		, <&gpio0 24 GPIO_ACTIVE_HIGH>
+		, <&gpio1 0  GPIO_ACTIVE_HIGH>
+		, <&gpio0 11 GPIO_ACTIVE_HIGH>
+		, <&gpio1 4 GPIO_ACTIVE_HIGH>
+		, <&gpio1 6 GPIO_ACTIVE_HIGH>
+		;
+};
+/* enable the listener on central */
+&trackball_listener {
+    status = "okay";
+    device = <&trackball>;
+};
+

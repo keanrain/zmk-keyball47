@@ -1,0 +1,5 @@
+config SHIELD_KEYBALL47_LEFT
+    def_bool $(shields_list_contains,keyball47_left)
+
+config SHIELD_KEYBALL47_RIGHT
+    def_bool $(shields_list_contains,keyball47_right)

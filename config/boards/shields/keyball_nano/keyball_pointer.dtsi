@@ -1,0 +1,23 @@
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
+
+
+
+&trackball_listener {
+    input-processors = <&zip_temp_layer 4 700>;
+    scroller: scroller {
+        layers           = <5>;
+        input-processors = <
+            &zip_xy_scaler 1 15
+            &zip_xy_to_scroll_mapper
+            &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
+        >;
+    };
+
+    /* layer-6 slow-pointer override */
+    slow_pointer: slow_pointer {
+        layers           = <6>;
+        input-processors = <&zip_xy_scaler 2 6>;
+    };
+};

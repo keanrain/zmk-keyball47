@@ -1,0 +1,12 @@
+file_format: "1"
+id: keyball47
+name: Keyball47
+type: shield
+url: https://github.com/Yowkees/keyball
+requires: [pro_micro]
+features:
+  - keys
+  - pointer
+siblings:
+  - keyball47_left
+  - keyball47_right
