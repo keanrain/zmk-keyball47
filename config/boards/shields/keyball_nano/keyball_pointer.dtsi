@@ -5,10 +5,10 @@
 
 
 &trackball_listener {
-    input-processors = <&zip_temp_layer 4 700>;
+    input-processors = <&zip_temp_layer 4 500>;
 
     scroller: scroller {
-        layers           = <5>;
+        layers           = <6>;
         input-processors = <
             &zip_xy_scaler 1 15
             &zip_xy_to_scroll_mapper
@@ -18,7 +18,7 @@
 
     /* layer-6 slow-pointer override */
     slow_pointer: slow_pointer {
-        layers           = <6>;
+        layers           = <7>;
         input-processors = <&zip_xy_scaler 2 6>;
     };
 };
