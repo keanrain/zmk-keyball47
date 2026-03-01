@@ -21,7 +21,7 @@
 
 #define MOUSE_BINDINGS \
     &kp N1          &kp N1          &kp N2          &kp N3         &kp N4         &kp N5                    &kp N6         &kp N7     &kp N8           &kp N9     &kp N0     &kp N0 \
-    &kp LEFT_ARROW  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &none                     &kp PAGE_UP    &mkp LCLK  &lt 6 (mkp MCLK) &mkp RCLK  &none      &none \
+    &kp LEFT_ARROW  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &none                     &kp PAGE_UP    &mkp LCLK  &mkp MCLK        &mkp RCLK  &none      &none \
     &none           &kp LG(LEFT)    &kp LA(LEFT)    &kp LA(RIGHT)  &kp LG(RIGHT)  &none                     &kp PAGE_DOWN  &none      &none            &none      &none      &none \
     &none           &none           &trans          &trans         &trans         &trans  &trans    &trans  &mo 3                                                 &none      &none
 
