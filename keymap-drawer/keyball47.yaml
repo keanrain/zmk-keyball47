@@ -13,17 +13,17 @@ layers:
   - O
   - P
   - BACKSPACE
-  - LCTRL
-  - A
-  - S
-  - D
-  - F
+  - TAB
+  - {t: A, h: LCTRL}
+  - {t: S, h: LALT}
+  - {t: D, h: LGUI}
+  - {t: F, h: LSHFT}
   - G
   - H
-  - J
-  - K
-  - L
-  - ;
+  - {t: J, h: RSHFT}
+  - {t: K, h: RGUI}
+  - {t: L, h: RALT}
+  - {t: ;, h: RCTRL}
   - ''''
   - LSHFT
   - Z
@@ -37,17 +37,17 @@ layers:
   - .
   - /
   - RSHFT
-  - BLUE
+  - LCTRL
   - LEFT WIN
   - LEFT ALT
-  - MENU
+  - '&caps_word'
   - {t: ESCAPE, h: SNIPE}
   - {t: SPACE, h: MOUSE}
-  - {t: Alt+`, h: SCROLL}
+  - {t: '`', h: SCROLL}
   - ENTER
-  - {t: BACKSPACE, h: BLUE}
+  - {t: BACKSPACE, h: SYM}
   - RIGHT ALT
-  - PRINTSCREEN
+  - RCTRL
   NUM:
   - {t: ▽, type: trans}
   - '1'
@@ -96,12 +96,12 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  BLUE:
-  - {t: BT, h: '0'}
-  - {t: BT, h: '1'}
-  - {t: BT, h: '2'}
-  - {t: BT, h: '3'}
-  - {t: BT, h: '4'}
+  SYM:
+  - {t: ▽, type: trans}
+  - '!'
+  - '@'
+  - '#'
+  - $
   - '%'
   - ^
   - '&'
@@ -109,41 +109,41 @@ layers:
   - (
   - )
   - )
-  - BT CLR ALL
-  - BT CLR
-  - BT NXT
-  - BT PRV
+  - {t: ▽, type: trans}
+  - Ctl+LEFT
+  - Ctl+DOWN
+  - Ctl+UP
+  - Ctl+RIGHT
+  - {t: ▽, type: trans}
+  - _
+  - +
+  - '{'
+  - '}'
+  - '|'
+  - '|'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '-'
   - '='
   - '['
   - ']'
-  - ''''
-  - ''''
-  - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - _
-  - +
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - \
   - \
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - {t: BT, h: '4'}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - BT CLR ALL
+  - BT CLR
   FUN:
   - {t: ▽, type: trans}
   - F1
@@ -192,6 +192,54 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  AUTO_M:
+  - '1'
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - '0'
+  - ''
+  - LEFT ARROW
+  - DOWN ARROW
+  - UP ARROW
+  - RIGHT
+  - ''
+  - PAGE UP
+  - '&mkp LCLK'
+  - SCROLL
+  - '&mkp RCLK'
+  - ''
+  - ''
+  - ''
+  - Gui+LEFT
+  - Alt+LEFT
+  - Alt+RIGHT
+  - Gui+RIGHT
+  - ''
+  - PAGE DOWN
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - FUN
+  - ''
+  - ''
   MOUSE:
   - '1'
   - '1'
@@ -205,7 +253,7 @@ layers:
   - '9'
   - '0'
   - '0'
-  - LEFT ARROW
+  - ''
   - LEFT ARROW
   - DOWN ARROW
   - UP ARROW
@@ -213,15 +261,15 @@ layers:
   - ''
   - PAGE UP
   - '&mkp LCLK'
-  - ''
+  - SCROLL
   - '&mkp RCLK'
-  - '&mkp MCLK'
-  - '&mkp MCLK'
   - ''
   - ''
   - ''
-  - ''
-  - ''
+  - Gui+LEFT
+  - Alt+LEFT
+  - Alt+RIGHT
+  - Gui+RIGHT
   - ''
   - PAGE DOWN
   - ''
