@@ -20,10 +20,10 @@
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
 
 #define MOUSE_BINDINGS \
-    &kp N1          &kp N1          &kp N2          &kp N3        &kp N4     &kp N5                    &kp N6         &kp N7     &kp N8  &kp N9     &kp N0     &kp N0 \
-    &kp LEFT_ARROW  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none                     &kp PAGE_UP    &mkp LCLK  &none   &mkp RCLK  &mkp MCLK  &mkp MCLK \
-    &none           &none           &none           &none         &none      &none                     &kp PAGE_DOWN  &none      &none   &none      &none      &none \
-    &none           &none           &trans          &trans        &trans     &trans  &trans    &trans  &mo 3                                        &none      &none
+    &kp N1          &kp N1          &kp N2          &kp N3         &kp N4         &kp N5                    &kp N6         &kp N7     &kp N8           &kp N9     &kp N0     &kp N0 \
+    &kp LEFT_ARROW  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &none                     &kp PAGE_UP    &mkp LCLK  &lt 6 (mkp MCLK) &mkp RCLK  &none      &none \
+    &none           &kp LG(LEFT)    &kp LA(LEFT)    &kp LA(RIGHT)  &kp LG(RIGHT)  &none                     &kp PAGE_DOWN  &none      &none            &none      &none      &none \
+    &none           &none           &trans          &trans         &trans         &trans  &trans    &trans  &mo 3                                                 &none      &none
 
 / {
     // custom shift using mod-morph
@@ -64,9 +64,9 @@
             label = "QWRT";
             bindings = <
             &kp ESC    &kp Q         &kp W         &kp E       &kp R         &kp T                                    &kp Y            &kp U  &kp I      &kp O    &kp P          &kp BACKSPACE
-            &kp LCTRL  &kp A         &kp S         &kp D       &kp F         &kp G                                    &kp H            &kp J  &kp K      &kp L    &kp SEMI       &kp APOS
+            &kp TAB    &mt LCTRL A   &mt LALT S    &mt LGUI D  &mt LSHFT F   &kp G                                    &kp H            &mt RSHFT J  &mt RGUI K &mt RALT L    &mt RCTRL SEMI   &kp APOS
             &kp LSHFT  &kp Z         &kp X         &kp C       &kp V         &kp B                                    &kp N            &kp M  &kp COMMA  &kp DOT  &kp FSLH       &kp RSHFT
-            &mo 2  &kp LEFT_WIN  &kp LEFT_ALT  &kp K_MENU  &lt 7 ESCAPE  &lt 5 SPACE  &lt 6 LA(GRAVE)  &kp ENTER  &lt 2 BACKSPACE                             &kp RIGHT_ALT  &kp PRINTSCREEN
+            &kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &kp K_MENU  &lt 7 ESCAPE  &lt 5 SPACE  &lt 6 GRAVE    &kp ENTER  &lt 2 BACKSPACE                             &kp RIGHT_ALT  &kp PRINTSCREEN
                         >;
         };
 
@@ -80,13 +80,13 @@
             >;
         };
 
-         blue_layer {
-            label = "BLUE";
+         sym_layer {
+            label = "SYM";
             bindings = <
-&bt BT_SEL 0    &bt BT_SEL 1        &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp PERCENT                    &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&bt BT_CLR_ALL  &bt BT_CLR          &bt BT_NXT    &bt BT_PRV    &trans          &trans                         &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp SQT                &kp SQT
-&none           &trans              &trans        &trans        &trans          &trans                         &kp UNDERSCORE  &kp PLUS       &trans            &trans                &kp NON_US_BACKSLASH   &kp NON_US_BACKSLASH
-&trans          &trans              &trans        &trans        &trans          &trans       &trans    &trans  &trans                                                                 &trans                 &trans
+&kp EXCL        &kp AT              &kp HASH      &kp DOLLAR    &kp PERCENT     &trans                         &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&trans          &kp LC(LEFT)        &kp LC(DOWN)  &kp LC(UP)    &kp LC(RIGHT)   &trans                         &kp UNDERSCORE  &kp PLUS       &kp LEFT_BRACE    &kp RIGHT_BRACE       &kp PIPE               &kp PIPE
+&trans          &trans              &trans        &trans        &trans          &trans                         &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp NON_US_BACKSLASH   &kp NON_US_BACKSLASH
+&bt BT_SEL 0    &bt BT_SEL 1        &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans       &trans    &trans  &trans                                                                 &bt BT_CLR_ALL         &bt BT_CLR
             >;
         };
 
