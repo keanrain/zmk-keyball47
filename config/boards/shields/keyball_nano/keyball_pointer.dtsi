@@ -5,12 +5,12 @@
 
 
 &trackball_listener {
-    input-processors = <&zip_temp_layer 4 500>;
+    input-processors = <&zip_temp_layer 4 399>;
 
     scroller: scroller {
         layers           = <6>;
         input-processors = <
-            &zip_xy_scaler 1 6
+            &zip_xy_scaler 1 8
             &zip_xy_to_scroll_mapper
             &zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)
         >;
