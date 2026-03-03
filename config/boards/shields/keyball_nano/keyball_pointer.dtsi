@@ -5,7 +5,7 @@
 
 
 &trackball_listener {
-    input-processors = <&zip_temp_layer 4 399>;
+    input-processors = <&zip_temp_layer 4 360>;
 
     scroller: scroller {
         layers           = <6>;
