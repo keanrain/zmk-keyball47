@@ -12,7 +12,7 @@ layers:
   - I
   - O
   - P
-  - BACKSPACE
+  - {t: BSPC, s: DEL}
   - TAB
   - {t: A, h: LCTRL}
   - {t: S, h: LALT}
@@ -62,10 +62,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '0'
-  - '4'
-  - '5'
-  - '6'
+  - {t: '0', h: LGUI}
+  - {t: '4', h: LALT}
+  - {t: '5', h: LSHFT}
+  - {t: '6', h: LCTRL}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -101,12 +101,12 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&swapper'
   - {t: ▽, type: trans}
   - PG UP
-  - BSPC
+  - {t: BSPC, h: Ctl+BSPC}
   - UP
-  - DEL
+  - {t: DEL, h: Ctl+DEL}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -127,7 +127,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - INS
+  - Gui+Z
   - HOME
   - {t: ▽, type: trans}
   - END
@@ -141,7 +141,7 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - CANCEL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   FUN:
@@ -152,9 +152,9 @@ layers:
   - F4
   - ''
   - ''
-  - ''
-  - ''
-  - ''
+  - PREV
+  - VOL UP
+  - NEXT
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -165,7 +165,7 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - VOL DN
   - ''
   - ''
   - {t: ▽, type: trans}
@@ -188,8 +188,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
+  - {t: MUTE, type: held}
+  - PP
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   AUTO_M:
@@ -241,18 +241,18 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   MOUSE:
-  - '1'
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - '6'
-  - '7'
-  - '8'
-  - '9'
-  - '0'
-  - '0'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - ''
   - LEFT ARROW
   - DOWN ARROW
@@ -486,9 +486,6 @@ combos:
   l: [QWRT, NUM, NAV]
 - p: [19, 31]
   k: '-'
-  l: [QWRT, NUM, NAV]
-- p: [20, 32]
-  k: /
   l: [QWRT, NUM, NAV]
 - p: [21, 33]
   k: '|'
