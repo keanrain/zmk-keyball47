@@ -19,6 +19,16 @@
     flavor = "tap-preferred";
     quick-tap-ms = <150>;
     require-prior-idle-ms = <175>;
+    hold-trigger-key-positions = <0>; // 用于导航键
+};
+
+&sk {
+    release-after-ms = <900>;
+    quick-release;
+};
+
+&sl {
+    ignore-modifiers;
 };
 
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
@@ -49,6 +59,14 @@
             label = "DOT_COLON";
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        bs_del: bs_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BS_DEL";
+            #binding-cells = <0>;
+            bindings = <&kp BSPC>, <&kp DEL>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -144,7 +162,7 @@
             bindings = <&num_word 1>, <&sl 1>;
         };
 
-        // --- Smart-Mouse (tri-state) ---
+        // --- Tri-State Behaviors ---
 
         smart_mouse: smart_mouse {
             compatible = "zmk,behavior-tri-state";
@@ -160,6 +178,14 @@
                 40 41 42 43 44   /* 拇指键 */
             >;
             ignored-layers = <5 6>;  /* MOUSE 和 SCROLL 层 */
+        };
+
+        swapper: swapper {
+            compatible = "zmk,behavior-tri-state";
+            label = "SWAPPER";
+            #binding-cells = <0>;
+            bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
+            ignored-key-positions = <14 15 16>; // 允许其他修饰键
         };
     };
 
@@ -331,14 +357,6 @@
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
         };
 
-        combo_fslh {
-            bindings = <&kp FSLH>;
-            key-positions = <20 32>;         /* K + , */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
         combo_pipe {
             bindings = <&kp PIPE>;
             key-positions = <21 33>;         /* L + . */
@@ -402,7 +420,7 @@
         default_layer {
             label = "QWRT";
             bindings = <
-            &kp ESC    &kp Q         &kp W         &kp E        &kp R         &kp T                    &kp Y     &kp U          &kp I       &kp O       &kp P           &kp BACKSPACE
+            &kp ESC    &kp Q         &kp W         &kp E        &kp R         &kp T                    &kp Y     &kp U          &kp I       &kp O       &kp P           &bs_del
             &kp TAB    &hml LCTRL A  &hml LALT S   &hml LSHFT D &hml LGUI F   &kp G                    &kp H     &hmr RGUI J    &hmr RSHFT K &hmr RALT L &hmr RCTRL SEMI &kp APOS
             &kp LSHFT  &kp Z         &kp X         &kp C        &kp V         &kp B                    &kp N     &kp M          &cmscl      &dtcln      &kp FSLH        &kp RSHFT
             &kp LCTRL  &caps_word    &kp LEFT_ALT  &kp LEFT_WIN &lt 7 ESCAPE  &lt 5 SPACE  &lt 2 GRAVE &lt 3 ENTER &smart_num 1 0              &kp RIGHT_ALT  &kp RCTRL
@@ -413,32 +431,32 @@
         number_layer {
             label = "NUM";
             bindings = <
-&trans  &trans   &kp N7  &kp N8  &kp N9  &trans                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp N0   &kp N4  &kp N5  &kp N6  &trans                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans   &kp N1  &kp N2  &kp N3  &trans                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans   &trans  &trans  &trans  &trans  &trans    &trans  &trans                       &trans  &trans
+&trans  &trans         &kp N7         &kp N8          &kp N9         &trans                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &hml LGUI N0   &hml LALT N4   &hml LSHFT N5   &hml LCTRL N6  &trans                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans         &kp N1         &kp N2          &kp N3         &trans                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans         &trans         &trans          &trans         &trans  &trans    &trans  &trans                       &trans  &trans
             >;
         };
 
-        // Layer 2: 导航层 (替代原 SYM 层，左手 sticky mods + 右手导航)
+        // Layer 2: 导航层 (左手 sticky mods + 右手导航)
         nav_layer {
             label = "NAV";
             bindings = <
-&trans  &trans    &trans    &trans     &trans     &trans                             &kp PG_UP  &kp BSPC   &kp UP     &kp DEL    &trans   &trans
-&trans  &sk LGUI  &sk LALT  &sk LSHFT  &sk LCTRL  &trans                            &kp PG_DN  &kp LEFT   &kp DOWN   &kp RIGHT  &kp RET  &trans
-&trans  &trans    &trans    &trans     &trans     &trans                             &kp INS    &kp HOME   &trans     &kp END    &trans   &trans
-&trans  &trans    &trans    &trans     &trans     &trans  &trans    &trans  &trans                                    &trans     &trans
+&trans  &trans    &trans    &trans     &swapper   &trans                             &kp PG_UP  &mt LC(BSPC) BSPC  &kp UP     &mt LC(DEL) DEL  &trans   &trans
+&trans  &sk LGUI  &sk LALT  &sk LSHFT  &sk LCTRL  &trans                             &kp PG_DN  &kp LEFT           &kp DOWN   &kp RIGHT        &kp RET  &trans
+&trans  &trans    &trans    &trans     &trans     &trans                             &kp LG(Z)  &kp HOME           &trans     &kp END          &trans   &trans
+&trans  &trans    &trans    &trans     &trans     &trans  &trans    &trans  &kp K_CANCEL                                        &trans   &trans
             >;
         };
 
-        // Layer 3: 功能键层 (纯 F 键，BT/系统移到 SYS 条件层)
+        // Layer 3: 功能键层 (右侧附加媒体键)
         function_layer {
             label = "FUN";
             bindings = <
-&trans  &kp F1  &kp F2   &kp F3   &kp F4   &none                     &none   &none   &none   &none   &none   &trans
-&trans  &kp F5  &kp F6   &kp F7   &kp F8   &none                     &none   &none   &none   &none   &none   &trans
-&none   &kp F9  &kp F10  &kp F11  &kp F12  &none                     &none   &none   &none   &none   &none   &none
-&trans  &trans  &trans   &trans   &trans   &trans  &trans    &trans  &trans                           &trans  &trans
+&trans  &kp F1  &kp F2   &kp F3   &kp F4   &none                     &none        &kp C_PREV   &kp C_VOL_UP  &kp C_NEXT  &none   &trans
+&trans  &kp F5  &kp F6   &kp F7   &kp F8   &none                     &none        &none        &kp C_VOL_DN  &none       &none   &trans
+&none   &kp F9  &kp F10  &kp F11  &kp F12  &none                     &none        &none        &none         &none       &none   &none
+&trans  &trans  &trans   &trans   &trans   &trans  &trans    &kp C_MUTE &kp C_PP                                         &trans  &trans
             >;
         };
 
@@ -457,7 +475,7 @@
         mouse_layer {
             label = "MOUSE";
             bindings = <
-&kp N1  &kp N1          &kp N2          &kp N3         &kp N4         &kp N5                    &kp N6         &kp N7     &kp N8  &kp N9     &kp N0     &kp N0
+&trans  &trans          &trans          &trans         &trans         &trans                    &trans         &trans     &trans  &trans     &trans     &trans
 &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &none                     &kp PAGE_UP    &mkp LCLK  &mo 6   &mkp RCLK  &none      &none
 &none   &kp LG(LEFT)    &kp LA(LEFT)    &kp LA(RIGHT)  &kp LG(RIGHT)  &none                     &kp PAGE_DOWN  &none      &none   &none      &none      &none
 &none   &none           &trans          &trans         &trans         &trans  &trans    &trans  &mo 3                                         &none      &none
