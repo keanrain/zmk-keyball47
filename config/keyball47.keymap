@@ -241,11 +241,21 @@
             require-prior-idle-ms = <COMBO_IDLE_FAST>;
         };
 
-        // --- 垂直上行 combos（顶行+中间行） ---
+        // --- 垂直上行 combos (顶行+中间行) ---
+        // 映射逻辑: 左小指 ! (Q+A), 左无名指 @ (W+S), 左中指 # (E+D), 左食指 $ (R+F) 和 % (T+G)
+        // 右食指 ^ (Y+H) 和 & (U+J), 右中指 * (I+K), 右无名指 ( (O+L), 右小指 ) (P+;)
+        
+        combo_excl {
+            bindings = <&kp EXCL>;
+            key-positions = <1 13>;          /* Q + A */
+            layers = <0 1 2>;
+            timeout-ms = <COMBO_TERM_SLOW>;
+            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
+        };
 
         combo_at {
             bindings = <&kp AT>;
-            key-positions = <1 13>;          /* Q + A */
+            key-positions = <2 14>;          /* W + S */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
@@ -253,7 +263,7 @@
 
         combo_hash {
             bindings = <&kp HASH>;
-            key-positions = <2 14>;          /* W + S */
+            key-positions = <3 15>;          /* E + D */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
@@ -261,7 +271,7 @@
 
         combo_dollar {
             bindings = <&kp DLLR>;
-            key-positions = <3 15>;          /* E + D */
+            key-positions = <4 16>;          /* R + F */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
@@ -269,7 +279,7 @@
 
         combo_percent {
             bindings = <&kp PRCNT>;
-            key-positions = <4 16>;          /* R + F */
+            key-positions = <5 17>;          /* T + G */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
@@ -283,8 +293,8 @@
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
         };
 
-        combo_plus {
-            bindings = <&kp PLUS>;
+        combo_amps {
+            bindings = <&kp AMPS>;
             key-positions = <7 19>;          /* U + J */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
@@ -299,15 +309,25 @@
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
         };
 
-        combo_amps {
-            bindings = <&kp AMPS>;
+        combo_lpar {
+            bindings = <&kp LPAR>;
             key-positions = <9 21>;          /* O + L */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
         };
 
-        // --- 垂直下行 combos（中间行+底行） ---
+        combo_rpar {
+            bindings = <&kp RPAR>;
+            key-positions = <10 22>;         /* P + ; */
+            layers = <0 1 2>;
+            timeout-ms = <COMBO_TERM_SLOW>;
+            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
+        };
+
+        // --- 垂直下行 combos (中间行+底行) ---
+        // 映射逻辑: 左手: ` (A+Z),  \ (S+X), = (D+C), ~ (F+V), _ (G+B)
+        // 右手: - (H+N), + (J+M), [ (K+,), ] (L+.), / (;+/)
 
         combo_grave {
             bindings = <&kp GRAVE>;
@@ -343,7 +363,7 @@
 
         combo_under {
             bindings = <&kp UNDER>;
-            key-positions = <18 30>;         /* H + N */
+            key-positions = <17 29>;         /* G + B */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
@@ -351,49 +371,65 @@
 
         combo_minus {
             bindings = <&kp MINUS>;
+            key-positions = <18 30>;         /* H + N */
+            layers = <0 1 2>;
+            timeout-ms = <COMBO_TERM_SLOW>;
+            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
+        };
+
+        combo_plus_bot {
+            bindings = <&kp PLUS>;
             key-positions = <19 31>;         /* J + M */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
         };
 
-        combo_pipe {
-            bindings = <&kp PIPE>;
+        combo_lbkt_vert {
+            bindings = <&kp LBKT>;
+            key-positions = <20 32>;         /* K + , */
+            layers = <0 1 2>;
+            timeout-ms = <COMBO_TERM_SLOW>;
+            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
+        };
+
+        combo_rbkt_vert {
+            bindings = <&kp RBKT>;
             key-positions = <21 33>;         /* L + . */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
         };
 
-        // --- 水平 combos（括号类，带 Shift mod-morph） ---
+        combo_fslh {
+            bindings = <&kp FSLH>;
+            key-positions = <22 34>;         /* ; + / */
+            layers = <0 1 2>;
+            timeout-ms = <COMBO_TERM_SLOW>;
+            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
+        };
 
-        combo_lpar {
-            bindings = <&lpar_lt>;
-            key-positions = <19 20>;         /* J + K → ( / Shift → < */
+        // --- 水平 combos (大括号与特殊符号) ---
+
+        combo_lbrc {
+            bindings = <&kp LBRC>;
+            key-positions = <20 21>;         /* K + L → { */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_IDLE_FAST>;
         };
 
-        combo_rpar {
-            bindings = <&rpar_gt>;
-            key-positions = <20 21>;         /* K + L → ) / Shift → > */
+        combo_rbrc {
+            bindings = <&kp RBRC>;
+            key-positions = <21 22>;         /* L + ; → } */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_IDLE_FAST>;
         };
 
-        combo_lbkt {
-            bindings = <&lbkt_lbrc>;
-            key-positions = <31 32>;         /* M + , → [ / Shift → { */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_FAST>;
-            require-prior-idle-ms = <COMBO_IDLE_FAST>;
-        };
-
-        combo_rbkt {
-            bindings = <&rbkt_rbrc>;
-            key-positions = <32 33>;         /* , + . → ] / Shift → } */
+        combo_pipe {
+            bindings = <&kp PIPE>;
+            key-positions = <32 33>;         /* , + . → | */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_IDLE_FAST>;
@@ -464,10 +500,10 @@
         auto_mouse_layer {
             label = "AUTO_M";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans      &trans  &trans      &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans      &trans  &trans      &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans      &trans  &trans      &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mo 6     &mkp LCLK   &mkp RCLK                      &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &trans             &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &mkp LCLK         &trans      &hmr RGUI mkp RCLK &hmr RSHFT mkp LCLK &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans      &mo 6              &trans             &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &mo 6     &mkp LCLK   &mkp RCLK                                     &trans  &trans
             >;
         };
 
@@ -475,10 +511,10 @@
         mouse_layer {
             label = "MOUSE";
             bindings = <
-&trans  &trans          &trans          &trans         &trans         &trans                    &trans         &trans     &trans  &trans     &trans     &trans
-&none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &none                     &kp PAGE_UP    &mkp LCLK  &mo 6   &mkp RCLK  &none      &none
-&none   &kp LG(LEFT)    &kp LA(LEFT)    &kp LA(RIGHT)  &kp LG(RIGHT)  &none                     &kp PAGE_DOWN  &none      &none   &none      &none      &none
-&none   &none           &trans          &trans         &trans         &trans  &trans    &trans  &mo 3                                         &none      &none
+&trans   &trans          &trans          &trans         &trans         &trans                    &trans         &trans     &trans  &trans     &trans     &trans
+&trans   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &trans                    &kp PAGE_UP    &mkp LCLK  &mo 6   &mkp RCLK  &trans     &trans
+&trans   &kp LG(LEFT)    &kp LA(LEFT)    &kp LA(RIGHT)  &kp LG(RIGHT)  &trans                    &kp PAGE_DOWN  &trans     &trans  &trans     &trans     &trans
+&trans   &trans          &trans          &trans         &trans         &trans  &trans    &trans  &mo 3                                         &tog 5     &trans
             >;
         };
 
