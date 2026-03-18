@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: keyball47}
 layers:
-  default:
+  QWE:
   - ESC
   - Q
   - W
@@ -33,22 +33,22 @@ layers:
   - B
   - N
   - M
-  - {t: ',', s: ;}
-  - {t: ., s: ':'}
+  - ','
+  - .
   - /
   - RSHFT
   - LCTRL
   - '&caps_word'
   - LEFT ALT
   - LEFT WIN
-  - {t: ESCAPE, h: snipe}
-  - {t: SPACE, h: mouse}
-  - {t: '`', h: nav}
+  - {t: ESCAPE, h: SNIPE}
+  - {t: SPACE, h: MOUSE}
+  - {t: '`', h: NAV}
   - ENTER
-  - {t: BSPC, h: number}
+  - {t: BSPC, h: NUM}
   - RIGHT ALT
   - RCTRL
-  number:
+  NUM:
   - {t: ▽, type: trans}
   - '1'
   - '2'
@@ -96,14 +96,14 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  nav:
+  NAV:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&swapper'
   - {t: ▽, type: trans}
-  - PG UP
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -115,19 +115,19 @@ layers:
   - {t: LSHFT, h: sticky}
   - {t: LGUI, h: sticky}
   - {t: ▽, type: trans}
-  - PG DN
+  - PG UP
   - LEFT
   - DOWN
   - UP
   - RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Ctl+LEFT
-  - Ctl+DOWN
-  - Ctl+UP
-  - Ctl+RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - PG DN
   - HOME
   - {t: ▽, type: trans}
   - END
@@ -141,10 +141,10 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
-  - CANCEL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  function:
+  - {t: ▽, type: trans}
+  FUN:
   - {t: ▽, type: trans}
   - F1
   - F2
@@ -188,11 +188,11 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - MUTE
-  - PP
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - BT CLR
   - BT CLR ALL
-  auto_mouse:
+  AUTO_M:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -240,7 +240,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  mouse:
+  MOUSE:
   - {t: ▽, type: trans}
   - '1'
   - '2'
@@ -285,10 +285,10 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - function
-  - {t: mouse, h: toggle}
+  - FUN
+  - {t: MOUSE, h: toggle}
   - {t: ▽, type: trans}
-  scroll:
+  SCROLL:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -309,7 +309,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: '&tap_smart_scroll', h: RSHFT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -336,8 +335,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  snipe:
   - {t: ▽, type: trans}
+  SNIPE:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -355,10 +354,11 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '&mkp LCLK'
   - {t: ▽, type: trans}
+  - {t: '&mkp LCLK', h: RGUI}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -387,55 +387,67 @@ layers:
 combos:
 - p: [26, 27]
   k: Gui+C
-  l: [default, nav, mouse]
+  l: [QWE, NAV, MOUSE]
 - p: [27, 28]
   k: Gui+V
-  l: [default, nav, mouse]
+  l: [QWE, NAV, MOUSE]
 - p: [26, 28]
   k: Gui+X
-  l: [default, nav, mouse]
+  l: [QWE, NAV, MOUSE]
+- p: [13, 14]
+  k: Ctl+LEFT
+  l: [QWE, NUM, NAV]
+- p: [14, 15]
+  k: Ctl+DOWN
+  l: [QWE, NUM, NAV]
+- p: [13, 16]
+  k: Ctl+UP
+  l: [QWE, NUM, NAV]
+- p: [15, 16]
+  k: Ctl+RIGHT
+  l: [QWE, NUM, NAV]
 - p: [1, 13]
   k: '!'
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [2, 14]
   k: '@'
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [3, 15]
   k: '#'
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [4, 16]
   k: $
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [5, 17]
   k: '%'
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [6, 18]
   k: ^
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [7, 19]
   k: '&'
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [8, 20]
   k: '*'
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [9, 21]
   k: (
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [10, 22]
   k: )
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [19, 20]
   k: '-'
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [20, 21]
   k: '['
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [21, 22]
   k: ']'
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [31, 32]
   k: '='
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
 - p: [32, 33]
   k: \
-  l: [default, number, nav]
+  l: [QWE, NUM, NAV]
