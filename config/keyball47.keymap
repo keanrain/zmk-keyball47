@@ -142,6 +142,42 @@
             hold-trigger-on-release;
         };
 
+        hml_ms: hml_ms {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HML_MS";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&mkp>;
+            hold-trigger-key-positions = <
+                6  7  8  9  10 11
+                18 19 20 21 22 23
+                30 31 32 33 34 35
+                43 44 45 46
+            >;
+            hold-trigger-on-release;
+        };
+
+        hmr_ms: hmr_ms {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HMR_MS";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&mkp>;
+            hold-trigger-key-positions = <
+                0  1  2  3  4  5
+                12 13 14 15 16 17
+                24 25 26 27 28 29
+                36 37 38 39 40 41 42
+            >;
+            hold-trigger-on-release;
+        };
+
         // --- Smart-Num (Numword) ---
 
         smart_num: smart_num {
@@ -501,7 +537,7 @@
             label = "AUTO_M";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &trans             &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &mkp LCLK         &trans      &hmr RGUI mkp RCLK &hmr RSHFT mkp LCLK &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &mkp LCLK         &trans      &hmr_ms RGUI RCLK  &hmr_ms RSHFT LCLK &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &trans      &mo 6              &trans             &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &mo 6     &mkp LCLK   &mkp RCLK                                     &trans  &trans
             >;
