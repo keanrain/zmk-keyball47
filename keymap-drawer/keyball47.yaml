@@ -427,35 +427,20 @@ combos:
 - p: [10, 22]
   k: )
   l: [QWRT, NUM, NAV]
-- p: [13, 14]
-  k: '`'
-  l: [QWRT, NUM, NAV]
-- p: [14, 15]
-  k: \
-  l: [QWRT, NUM, NAV]
-- p: [15, 16]
-  k: '='
-  l: [QWRT, NUM, NAV]
-- p: [16, 17]
-  k: '~'
-  l: [QWRT, NUM, NAV]
-- p: [18, 19]
+- p: [19, 20]
   k: '-'
   l: [QWRT, NUM, NAV]
-- p: [19, 20]
-  k: +
-  l: [QWRT, NUM, NAV]
 - p: [20, 21]
-  k: '['
+  k: '='
   l: [QWRT, NUM, NAV]
 - p: [21, 22]
+  k: '['
+  l: [QWRT, NUM, NAV]
+- p: [31, 32]
   k: ']'
   l: [QWRT, NUM, NAV]
-- p: [17, 29]
-  k: _
-  l: [QWRT, NUM, NAV]
-- p: [22, 34]
-  k: /
+- p: [32, 33]
+  k: \
   l: [QWRT, NUM, NAV]
 - p: [20, 21]
   k: '{'
