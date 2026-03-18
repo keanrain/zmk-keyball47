@@ -35,8 +35,8 @@
 
 // ===================== Combo 时序参数 =====================
 
-#define COMBO_TERM_FAST 18
-#define COMBO_TERM_SLOW 30
+#define COMBO_TERM_FAST 30
+#define COMBO_TERM_SLOW 40
 #define COMBO_IDLE_FAST 150
 #define COMBO_IDLE_SLOW 50
 
@@ -114,12 +114,13 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
+            global-quick-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <
                 6  7  8  9  10 11
                 18 19 20 21 22 23
                 30 31 32 33 34 35
-                43 44 45 46
+                42 43 44 45 46
             >;
             hold-trigger-on-release;
         };
@@ -132,12 +133,13 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
+            global-quick-tap;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <
                 0  1  2  3  4  5
                 12 13 14 15 16 17
                 24 25 26 27 28 29
-                36 37 38 39 40 41 42
+                36 37 38 39 40 41
             >;
             hold-trigger-on-release;
         };
@@ -150,12 +152,13 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
+            global-quick-tap;
             bindings = <&kp>, <&mkp>;
             hold-trigger-key-positions = <
                 6  7  8  9  10 11
                 18 19 20 21 22 23
                 30 31 32 33 34 35
-                43 44 45 46
+                42 43 44 45 46
             >;
             hold-trigger-on-release;
         };
@@ -168,52 +171,15 @@
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
+            global-quick-tap;
             bindings = <&kp>, <&mkp>;
             hold-trigger-key-positions = <
                 0  1  2  3  4  5
                 12 13 14 15 16 17
                 24 25 26 27 28 29
-                36 37 38 39 40 41 42
+                36 37 38 39 40 41
             >;
             hold-trigger-on-release;
-        };
-
-        // --- Smart-Num (Numword) ---
-
-        smart_num: smart_num {
-            compatible = "zmk,behavior-hold-tap";
-            label = "SMART_NUM";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            bindings = <&mo>, <&num_dance>;
-        };
-
-        num_dance: num_dance {
-            compatible = "zmk,behavior-tap-dance";
-            label = "NUM_DANCE";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&num_word 1>, <&sl 1>;
-        };
-
-        // --- Tri-State Behaviors ---
-
-        smart_mouse: smart_mouse {
-            compatible = "zmk,behavior-tri-state";
-            label = "SMART_MOUSE";
-            #binding-cells = <0>;
-            bindings = <&tog 5>, <&none>, <&tog 5>;
-            ignored-key-positions = <
-                6 7 8 9 10       /* 右手顶行 */
-                18 19 20 21      /* 右手中行（含鼠标点击） */
-                30               /* PAGE_DOWN */
-                13 14 15 16      /* 左手导航（方向键） */
-                25 26 27 28      /* 左手底行导航 */
-                40 41 42 43 44   /* 拇指键 */
-            >;
-            ignored-layers = <5 6>;  /* MOUSE 和 SCROLL 层 */
         };
 
         swapper: swapper {
@@ -225,189 +191,48 @@
         };
     };
 
-    // ===================== 宏 =====================
-
-    macros {
-        Hiragana: Hiragana {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp LC(SPACE)>;
-            label = "HIRAGANA";
-        };
-    };
-
     // ===================== Combos (替代符号层) =====================
+
+#define ZMK_COMBO(name, bind, keypos, layer, timeout, idle) \
+    combo_##name { \
+        bindings = <bind>; \
+        key-positions = <keypos>; \
+        layers = <layer>; \
+        timeout-ms = <timeout>; \
+        require-prior-idle-ms = <idle>; \
+    };
 
     combos {
         compatible = "zmk,combos";
 
-        // --- Smart-Mouse 触发 ---
+        // --- Mouse 层切换 (W+E) ---
+        ZMK_COMBO(mouse_toggle, &tog 5, 2 3, 0 2, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-        combo_smart_mouse {
-            bindings = <&smart_mouse>;
-            key-positions = <2 3>;           /* W + E */
-            layers = <0 2>;                  /* QWRT, NAV */
-            timeout-ms = <COMBO_TERM_FAST>;
-            require-prior-idle-ms = <COMBO_IDLE_FAST>;
-        };
-
-        // --- 左手便捷功能 ---
-
-        combo_copy {
-            bindings = <&kp LG(C)>;
-            key-positions = <26 27>;         /* X + C */
-            layers = <0 2 5>;
-            timeout-ms = <COMBO_TERM_FAST>;
-            require-prior-idle-ms = <COMBO_IDLE_FAST>;
-        };
-
-        combo_paste {
-            bindings = <&kp LG(V)>;
-            key-positions = <27 28>;         /* C + V */
-            layers = <0 2 5>;
-            timeout-ms = <COMBO_TERM_FAST>;
-            require-prior-idle-ms = <COMBO_IDLE_FAST>;
-        };
-
-        combo_cut {
-            bindings = <&kp LG(X)>;
-            key-positions = <26 28>;         /* X + V */
-            layers = <0 2 5>;
-            timeout-ms = <COMBO_TERM_FAST>;
-            require-prior-idle-ms = <COMBO_IDLE_FAST>;
-        };
+        // --- 左手便捷功能 (X+C, C+V, X+V) ---
+        ZMK_COMBO(copy,  &kp LG(C), 26 27, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+        ZMK_COMBO(paste, &kp LG(V), 27 28, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+        ZMK_COMBO(cut,   &kp LG(X), 26 28, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
         // --- 垂直上行 combos (顶行+中间行) ---
         // 映射逻辑: 左小指 ! (Q+A), 左无名指 @ (W+S), 左中指 # (E+D), 左食指 $ (R+F) 和 % (T+G)
         // 右食指 ^ (Y+H) 和 & (U+J), 右中指 * (I+K), 右无名指 ( (O+L), 右小指 ) (P+;)
-        
-        combo_excl {
-            bindings = <&kp EXCL>;
-            key-positions = <1 13>;          /* Q + A */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_at {
-            bindings = <&kp AT>;
-            key-positions = <2 14>;          /* W + S */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_hash {
-            bindings = <&kp HASH>;
-            key-positions = <3 15>;          /* E + D */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_dollar {
-            bindings = <&kp DLLR>;
-            key-positions = <4 16>;          /* R + F */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_percent {
-            bindings = <&kp PRCNT>;
-            key-positions = <5 17>;          /* T + G */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_caret {
-            bindings = <&kp CARET>;
-            key-positions = <6 18>;          /* Y + H */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_amps {
-            bindings = <&kp AMPS>;
-            key-positions = <7 19>;          /* U + J */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_star {
-            bindings = <&kp STAR>;
-            key-positions = <8 20>;          /* I + K */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_lpar {
-            bindings = <&kp LPAR>;
-            key-positions = <9 21>;          /* O + L */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_rpar {
-            bindings = <&kp RPAR>;
-            key-positions = <10 22>;         /* P + ; */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
+        ZMK_COMBO(excl,    &kp EXCL,   1 13, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(at,      &kp AT,     2 14, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(hash,    &kp HASH,   3 15, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(dollar,  &kp DLLR,   4 16, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(percent, &kp PRCNT,  5 17, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(caret,   &kp CARET,  6 18, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(amps,    &kp AMPS,   7 19, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(star,    &kp STAR,   8 20, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(lpar,    &kp LPAR,   9 21, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(rpar,    &kp RPAR,  10 22, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
 
         // --- 横向 combos (右手中间/底排，五种基本符号 - = [ ] \) ---
-        // 映射逻辑:
-        // - (MINUS) : J + K
-        // [ (LBKT)  : K + L
-        // ] (RBKT)  : L + ;
-        // = (EQUAL) : M + ,
-        // \ (BSLH)  : , + .
-
-        combo_minus {
-            bindings = <&kp MINUS>;
-            key-positions = <19 20>;         /* J + K */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_lbkt {
-            bindings = <&kp LBKT>;
-            key-positions = <20 21>;         /* K + L */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_rbkt {
-            bindings = <&kp RBKT>;
-            key-positions = <21 22>;         /* L + ; */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_equal {
-            bindings = <&kp EQUAL>;
-            key-positions = <31 32>;         /* M + , */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_bslh {
-            bindings = <&kp BSLH>;
-            key-positions = <32 33>;         /* , + . */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
+        ZMK_COMBO(minus,   &kp MINUS, 19 20, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(lbkt,    &kp LBKT,  20 21, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(rbkt,    &kp RBKT,  21 22, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(equal,   &kp EQUAL, 31 32, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(bslh,    &kp BSLH,  32 33, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
     };
 
     // ===================== 键映射 =====================
@@ -422,7 +247,7 @@
             &kp ESC    &kp Q         &kp W         &kp E        &kp R         &kp T                    &kp Y     &kp U          &kp I       &kp O       &kp P           &bs_del
             &kp TAB    &hml LCTRL A  &hml LALT S   &hml LSHFT D &hml LGUI F   &kp G                    &kp H     &hmr RGUI J    &hmr RSHFT K &hmr RALT L &hmr RCTRL SEMI &kp APOS
             &kp LSHFT  &kp Z         &kp X         &kp C        &kp V         &kp B                    &kp N     &kp M          &cmscl      &dtcln      &kp FSLH        &kp RSHFT
-            &kp LCTRL  &caps_word    &kp LEFT_ALT  &kp LEFT_WIN &lt 7 ESCAPE  &lt 5 SPACE  &lt 2 GRAVE &lt 3 ENTER &smart_num 1 0              &kp RIGHT_ALT  &kp RCTRL
+            &kp LCTRL  &caps_word    &kp LEFT_ALT  &kp LEFT_WIN &lt 7 ESCAPE  &lt 5 SPACE  &lt 2 GRAVE &kp ENTER &lt 1 0              &kp RIGHT_ALT  &kp RCTRL
                         >;
         };
 
@@ -431,7 +256,7 @@
             label = "NUM";
             bindings = <
 &trans  &kp N1         &kp N2         &kp N3          &kp N4         &kp N5                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &hml LGUI N6   &hml LALT N7   &hml LSHFT N8   &hml LCTRL N9  &kp N0                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &hml LCTRL N6  &hml LALT N7   &hml LSHFT N8   &hml LGUI N9   &kp N0                          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans         &trans         &trans          &trans         &trans                          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans         &trans         &trans          &trans         &trans  &trans    &trans  &trans                       &trans  &trans
             >;
@@ -441,10 +266,10 @@
         nav_layer {
             label = "NAV";
             bindings = <
-&trans  &trans    &trans    &trans     &swapper   &trans                             &kp PG_UP  &trans          &trans     &trans           &trans   &trans
-&trans  &sk LGUI  &sk LALT  &sk LSHFT  &sk LCTRL  &trans                             &kp PG_DN  &kp LEFT        &kp DOWN   &kp UP           &kp RIGHT &trans
-&trans  &trans    &trans    &trans     &trans     &trans                             &trans     &kp HOME        &trans     &kp END          &trans   &trans
-&trans  &trans    &trans    &trans     &trans     &trans  &trans    &trans  &kp K_CANCEL                                        &trans   &trans
+&trans  &trans     &trans     &trans      &swapper   &trans                             &kp PG_UP  &trans          &trans     &trans           &trans   &trans
+&trans  &sk LCTRL  &sk LALT   &sk LSHFT   &sk LGUI   &trans                             &kp PG_DN  &kp LEFT        &kp DOWN   &kp UP           &kp RIGHT &trans
+&trans  &trans     &trans     &trans      &trans     &trans                             &trans     &kp HOME        &trans     &kp END          &trans   &trans
+&trans  &trans     &trans     &trans      &trans     &trans  &trans    &trans  &kp K_CANCEL                                        &trans   &trans
             >;
         };
 
@@ -454,7 +279,7 @@
             bindings = <
 &trans  &kp F1  &kp F2   &kp F3   &kp F4   &none                     &none         &kp C_PREV    &kp C_VOL_UP  &kp C_NEXT    &none         &trans
 &trans  &kp F5  &kp F6   &kp F7   &kp F8   &none                     &none         &none         &kp C_VOL_DN  &none         &none         &trans
-&none   &kp F9  &kp F10  &kp F11  &kp F12  &bootloader               &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bootloader
+&none   &kp F9  &kp F10  &kp F11  &kp F12  &none                     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bootloader
 &trans  &trans  &trans   &trans   &trans   &trans  &trans    &kp C_MUTE &kp C_PP                                         &bt BT_CLR    &bt BT_CLR_ALL
             >;
         };
