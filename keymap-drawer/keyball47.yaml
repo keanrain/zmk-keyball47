@@ -210,6 +210,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '&mkp LCLK'
+  - {t: ▽, type: trans}
+  - {t: '&mkp RCLK', h: RGUI}
+  - {t: '&mkp LCLK', h: RSHFT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -220,11 +224,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - SCROLL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -253,32 +253,32 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ''
+  - {t: ▽, type: trans}
   - LEFT ARROW
   - DOWN ARROW
   - UP ARROW
   - RIGHT
-  - ''
+  - {t: ▽, type: trans}
   - PAGE UP
   - '&mkp LCLK'
   - SCROLL
   - '&mkp RCLK'
-  - ''
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - Gui+LEFT
   - Alt+LEFT
   - Alt+RIGHT
   - Gui+RIGHT
-  - ''
+  - {t: ▽, type: trans}
   - PAGE DOWN
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -286,8 +286,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - FUN
-  - ''
-  - ''
+  - {t: MOUSE, h: toggle}
+  - {t: ▽, type: trans}
   SCROLL:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -320,18 +320,18 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -446,28 +446,34 @@ combos:
   k: Gui+X
   l: [QWRT, NAV, MOUSE]
 - p: [1, 13]
-  k: '@'
+  k: '!'
   l: [QWRT, NUM, NAV]
 - p: [2, 14]
-  k: '#'
+  k: '@'
   l: [QWRT, NUM, NAV]
 - p: [3, 15]
-  k: $
+  k: '#'
   l: [QWRT, NUM, NAV]
 - p: [4, 16]
+  k: $
+  l: [QWRT, NUM, NAV]
+- p: [5, 17]
   k: '%'
   l: [QWRT, NUM, NAV]
 - p: [6, 18]
   k: ^
   l: [QWRT, NUM, NAV]
 - p: [7, 19]
-  k: +
+  k: '&'
   l: [QWRT, NUM, NAV]
 - p: [8, 20]
   k: '*'
   l: [QWRT, NUM, NAV]
 - p: [9, 21]
-  k: '&'
+  k: (
+  l: [QWRT, NUM, NAV]
+- p: [10, 22]
+  k: )
   l: [QWRT, NUM, NAV]
 - p: [13, 25]
   k: '`'
@@ -481,24 +487,30 @@ combos:
 - p: [16, 28]
   k: '~'
   l: [QWRT, NUM, NAV]
-- p: [18, 30]
+- p: [17, 29]
   k: _
   l: [QWRT, NUM, NAV]
-- p: [19, 31]
+- p: [18, 30]
   k: '-'
   l: [QWRT, NUM, NAV]
-- p: [21, 33]
-  k: '|'
+- p: [19, 31]
+  k: +
   l: [QWRT, NUM, NAV]
-- p: [19, 20]
-  k: {t: (, s: <}
+- p: [20, 32]
+  k: '['
+  l: [QWRT, NUM, NAV]
+- p: [21, 33]
+  k: ']'
+  l: [QWRT, NUM, NAV]
+- p: [22, 34]
+  k: /
   l: [QWRT, NUM, NAV]
 - p: [20, 21]
-  k: {t: ), s: '>'}
+  k: '{'
   l: [QWRT, NUM, NAV]
-- p: [31, 32]
-  k: {t: '[', s: '{'}
+- p: [21, 22]
+  k: '}'
   l: [QWRT, NUM, NAV]
 - p: [32, 33]
-  k: {t: ']', s: '}'}
+  k: '|'
   l: [QWRT, NUM, NAV]
