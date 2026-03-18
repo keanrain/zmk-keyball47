@@ -200,15 +200,24 @@
             bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
             ignored-key-positions = <14 15 16>; // 允许其他修饰键
         };
+
+        smart_scroll: smart_scroll {
+            compatible = "zmk,behavior-tri-state";
+            label = "SMART_SCROLL";
+            #binding-cells = <0>;
+            bindings = <&tog 6>;
+            // 仅忽略 K 键自身，其余任何按键均会触发退出
+            ignored-key-positions = <20>;
+        };
+    };
+
+    macros {
     };
 
     // ===================== Combos (替代符号层) =====================
 
     combos {
         compatible = "zmk,combos";
-
-        // --- Mouse 层切换 (W+E) ---
-        ZMK_COMBO(mouse_toggle, &tog 5, 2 3, 0 2, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
         // --- 左手便捷功能 (X+C, C+V, X+V) ---
         ZMK_COMBO(copy,  &kp LG(C), 26 27, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST)
@@ -291,9 +300,9 @@
             label = "AUTO_M";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &trans             &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &mkp LCLK         &trans      &hmr_ms RGUI LCLK  &hmr_ms RSHFT RCLK &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &mo 6              &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &mo 6     &mkp RCLK   &mkp LCLK                                     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &mkp LCLK         &trans      &hmr_ms RGUI LCLK  &smart_scroll      &hmr_ms RALT RCLK &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &trans             &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                         &trans  &trans
             >;
         };
 
@@ -302,8 +311,8 @@
             label = "MOUSE";
             bindings = <
 &trans   &kp N1          &kp N2          &kp N3         &kp N4         &kp N5                    &kp N6         &kp N7     &kp N8     &kp N9     &kp N0     &trans
-&trans   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &mkp LCLK                 &kp PAGE_UP    &mkp LCLK  &mkp RCLK  &trans     &trans     &trans
-&trans   &kp LG(LEFT)    &kp LA(LEFT)    &kp LA(RIGHT)  &kp LG(RIGHT)  &trans                    &kp PAGE_DOWN  &trans     &mo 6      &trans     &trans     &trans
+&trans   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &mkp LCLK                 &kp PAGE_UP    &hmr_ms RGUI LCLK  &smart_scroll     &hmr_ms RALT RCLK  &trans     &trans
+&trans   &kp LG(LEFT)    &kp LA(LEFT)    &kp LA(RIGHT)  &kp LG(RIGHT)  &trans                    &kp PAGE_DOWN  &trans     &trans     &trans     &trans     &trans
 &trans   &trans          &trans          &trans         &trans         &trans  &trans    &trans  &mo 3                                         &tog 5     &trans
             >;
         };
@@ -312,9 +321,9 @@
         scroll_layer {
             label = "SCROLL";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &trans          &trans      &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &smart_scroll   &trans      &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &trans          &trans      &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans  &trans
             >;
         };
