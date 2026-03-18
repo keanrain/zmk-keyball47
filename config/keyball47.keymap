@@ -364,9 +364,9 @@
         // --- 横向 combos (右手中间/底排，五种基本符号 - = [ ] \) ---
         // 映射逻辑:
         // - (MINUS) : J + K
-        // = (EQUAL) : K + L
-        // [ (LBKT)  : L + ;
-        // ] (RBKT)  : M + ,
+        // [ (LBKT)  : K + L
+        // ] (RBKT)  : L + ;
+        // = (EQUAL) : M + ,
         // \ (BSLH)  : , + .
 
         combo_minus {
@@ -377,17 +377,9 @@
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
         };
 
-        combo_equal {
-            bindings = <&kp EQUAL>;
-            key-positions = <20 21>;         /* K + L */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
         combo_lbkt {
             bindings = <&kp LBKT>;
-            key-positions = <21 22>;         /* L + ; */
+            key-positions = <20 21>;         /* K + L */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
@@ -395,6 +387,14 @@
 
         combo_rbkt {
             bindings = <&kp RBKT>;
+            key-positions = <21 22>;         /* L + ; */
+            layers = <0 1 2>;
+            timeout-ms = <COMBO_TERM_SLOW>;
+            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
+        };
+
+        combo_equal {
+            bindings = <&kp EQUAL>;
             key-positions = <31 32>;         /* M + , */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
@@ -407,32 +407,6 @@
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        // --- 水平 combos (大括号与特殊符号) ---
-
-        combo_lbrc {
-            bindings = <&kp LBRC>;
-            key-positions = <20 21>;         /* K + L → { */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_FAST>;
-            require-prior-idle-ms = <COMBO_IDLE_FAST>;
-        };
-
-        combo_rbrc {
-            bindings = <&kp RBRC>;
-            key-positions = <21 22>;         /* L + ; → } */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_FAST>;
-            require-prior-idle-ms = <COMBO_IDLE_FAST>;
-        };
-
-        combo_pipe {
-            bindings = <&kp PIPE>;
-            key-positions = <32 33>;         /* , + . → | */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_FAST>;
-            require-prior-idle-ms = <COMBO_IDLE_FAST>;
         };
     };
 
