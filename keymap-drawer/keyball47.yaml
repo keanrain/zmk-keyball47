@@ -200,9 +200,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: '&mkp LCLK', h: RGUI}
-  - {t: '&tap_smart_scroll', h: RSHFT}
-  - {t: '&mkp RCLK', h: RALT}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -308,9 +308,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: '&mkp LCLK', h: RGUI}
+  - {t: ▽, type: trans}
   - {t: '&tap_smart_scroll', h: RSHFT}
-  - {t: '&mkp RCLK', h: RALT}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
