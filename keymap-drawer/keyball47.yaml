@@ -44,8 +44,8 @@ layers:
   - {t: ESCAPE, h: SNIPE}
   - {t: SPACE, h: MOUSE}
   - {t: '`', h: NAV}
-  - {t: ENTER, h: FUN}
-  - {t: '&num_dance', h: NUM}
+  - ENTER
+  - {t: '0', h: NUM}
   - RIGHT ALT
   - RCTRL
   NUM:
@@ -62,10 +62,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: '6', h: LGUI}
+  - {t: '6', h: LCTRL}
   - {t: '7', h: LALT}
   - {t: '8', h: LSHFT}
-  - {t: '9', h: LCTRL}
+  - {t: '9', h: LGUI}
   - '0'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -110,10 +110,10 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: LGUI, h: sticky}
+  - {t: LCTRL, h: sticky}
   - {t: LALT, h: sticky}
   - {t: LSHFT, h: sticky}
-  - {t: LCTRL, h: sticky}
+  - {t: LGUI, h: sticky}
   - {t: ▽, type: trans}
   - PG DN
   - LEFT
@@ -174,7 +174,7 @@ layers:
   - F10
   - F11
   - F12
-  - '&bootloader'
+  - ''
   - {t: BT, h: '0'}
   - {t: BT, h: '1'}
   - {t: BT, h: '2'}
@@ -188,7 +188,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: MUTE, type: held}
+  - MUTE
   - PP
   - BT CLR
   - BT CLR ALL
@@ -386,7 +386,7 @@ layers:
   - {t: ▽, type: trans}
 combos:
 - p: [2, 3]
-  k: '&smart_mouse'
+  k: {t: MOUSE, h: toggle}
   l: [QWRT, NAV]
 - p: [26, 27]
   k: Gui+C
