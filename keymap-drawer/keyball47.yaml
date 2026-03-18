@@ -213,7 +213,8 @@ layers:
   - '&mkp LCLK'
   - {t: ▽, type: trans}
   - {t: '&mkp LCLK', h: RGUI}
-  - {t: '&mkp RCLK', h: RSHFT}
+  - '&smart_scroll'
+  - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -225,7 +226,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - SCROLL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -235,9 +235,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - SCROLL
-  - '&mkp RCLK'
-  - '&mkp LCLK'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   MOUSE:
@@ -260,9 +260,9 @@ layers:
   - RIGHT
   - '&mkp LCLK'
   - PAGE UP
-  - '&mkp LCLK'
-  - '&mkp RCLK'
-  - {t: ▽, type: trans}
+  - {t: '&mkp LCLK', h: RGUI}
+  - '&smart_scroll'
+  - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -273,7 +273,7 @@ layers:
   - {t: ▽, type: trans}
   - PAGE DOWN
   - {t: ▽, type: trans}
-  - SCROLL
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -309,6 +309,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '&smart_scroll'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -321,7 +322,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -385,9 +385,6 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
-- p: [2, 3]
-  k: {t: MOUSE, h: toggle}
-  l: [QWRT, NAV]
 - p: [26, 27]
   k: Gui+C
   l: [QWRT, NAV, MOUSE]
