@@ -361,21 +361,17 @@
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
         };
 
-        // --- 横向 combos (中间行相邻键) ---
-        // 映射逻辑: 左手: ` (A+S), \ (S+D), = (D+F), ~ (F+G)
-        // 右手: - (H+J), + (J+K), [ (K+L), ] (L+;)
+        // --- 横向 combos (右手中间/底排，五种基本符号 - = [ ] \) ---
+        // 映射逻辑:
+        // - (MINUS) : J + K
+        // = (EQUAL) : K + L
+        // [ (LBKT)  : L + ;
+        // ] (RBKT)  : M + ,
+        // \ (BSLH)  : , + .
 
-        combo_grave {
-            bindings = <&kp GRAVE>;
-            key-positions = <13 14>;         /* A + S */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_bslh {
-            bindings = <&kp BSLH>;
-            key-positions = <14 15>;         /* S + D */
+        combo_minus {
+            bindings = <&kp MINUS>;
+            key-positions = <19 20>;         /* J + K */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
@@ -383,64 +379,31 @@
 
         combo_equal {
             bindings = <&kp EQUAL>;
-            key-positions = <15 16>;         /* D + F */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_tilde {
-            bindings = <&kp TILDE>;
-            key-positions = <16 17>;         /* F + G */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_minus {
-            bindings = <&kp MINUS>;
-            key-positions = <18 19>;         /* H + J */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_plus_bot {
-            bindings = <&kp PLUS>;
-            key-positions = <19 20>;         /* J + K */
-            layers = <0 1 2>;
-            timeout-ms = <COMBO_TERM_SLOW>;
-            require-prior-idle-ms = <COMBO_IDLE_SLOW>;
-        };
-
-        combo_lbkt_vert {
-            bindings = <&kp LBKT>;
             key-positions = <20 21>;         /* K + L */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
         };
 
-        combo_rbkt_vert {
-            bindings = <&kp RBKT>;
+        combo_lbkt {
+            bindings = <&kp LBKT>;
             key-positions = <21 22>;         /* L + ; */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
         };
 
-        // combo_under 和 combo_fslh 作为特殊按键保留垂直或其他排列
-        combo_under {
-            bindings = <&kp UNDER>;
-            key-positions = <17 29>;         /* G + B */
+        combo_rbkt {
+            bindings = <&kp RBKT>;
+            key-positions = <31 32>;         /* M + , */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
         };
 
-        combo_fslh {
-            bindings = <&kp FSLH>;
-            key-positions = <22 34>;         /* ; + / */
+        combo_bslh {
+            bindings = <&kp BSLH>;
+            key-positions = <32 33>;         /* , + . */
             layers = <0 1 2>;
             timeout-ms = <COMBO_TERM_SLOW>;
             require-prior-idle-ms = <COMBO_IDLE_SLOW>;
