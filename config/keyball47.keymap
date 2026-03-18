@@ -188,7 +188,7 @@
         smart_scroll: smart_scroll {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
-            bindings = <&tog 6>, <&none>, <&tog 6>;
+            bindings = <&tog 6>, <&tog 6>, <&tog 6>;
             // 仅忽略 K 键自身，其余任何按键均会触发退出
             ignored-key-positions = <20>;
         };
@@ -291,7 +291,7 @@
         // Layer 4: 自动鼠标层 (轨迹球触发, home row 全透传)
         auto_mouse_layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans            &trans      &hmr_ms RGUI LCLK  &ks_scroll RSHFT 0  &hmr_ms RALT RCLK &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &trans             &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &mkp LCLK         &trans      &hmr_ms RGUI LCLK  &ks_scroll RSHFT 0  &hmr_ms RALT RCLK &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &trans             &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                         &trans  &trans
@@ -312,7 +312,7 @@
         scroll_layer {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &trans          &trans      &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &hmr_ms RGUI LCLK      &ks_scroll RSHFT 0   &hmr_ms RALT RCLK      &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &ks_scroll RSHFT 0   &trans      &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &trans          &trans      &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans  &trans
             >;
