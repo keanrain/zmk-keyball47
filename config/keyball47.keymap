@@ -57,54 +57,10 @@
     behaviors {
         // --- Mod-Morph 标点 ---
 
-        cmscl: comma_semicolon {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp SEMI>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        dtcln: dot_colon {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp COLON>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         bs_del: bs_del {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp BSPC>, <&kp DEL>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        // --- Bracket Mod-Morphs (用于 combos) ---
-
-        lpar_lt: lpar_lt {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LPAR>, <&kp LT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        rpar_gt: rpar_gt {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp RPAR>, <&kp GT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        lbkt_lbrc: lbkt_lbrc {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LBKT>, <&kp LBRC>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        rbkt_rbrc: rbkt_rbrc {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp RBKT>, <&kp RBRC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -147,8 +103,8 @@
         hml_ms: hml_ms {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <175>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
             bindings = <&kp>, <&mkp>;
@@ -164,8 +120,8 @@
         hmr_ms: hmr_ms {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <175>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
             bindings = <&kp>, <&mkp>;
@@ -186,11 +142,9 @@
         };
 
         smart_scroll: smart_scroll {
-            compatible = "zmk,behavior-tri-state";
-            #binding-cells = <0>;
-            bindings = <&tog 6>, <&tog 6>, <&tog 6>;
-            // 仅忽略 K 键自身，其余任何按键均会触发退出
-            ignored-key-positions = <20>;
+            compatible = "zmk,behavior-auto-layer";
+            #binding-cells = <1>;
+            continue-list = <>; // 空白白名单：敲击任意按键都会立刻恢复基础层，并把刚敲击的键完整输出
         };
 
         // 鼠标层专用的 K 键行为：长按 Shift，短按滚轮切换
@@ -207,7 +161,7 @@
         tap_smart_scroll: tap_smart_scroll {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&smart_scroll>;
+            bindings = <&smart_scroll 6>;
         };
         };
 
@@ -220,6 +174,12 @@
         ZMK_COMBO(copy,  &kp LG(C), 26 27, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST)
         ZMK_COMBO(paste, &kp LG(V), 27 28, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST)
         ZMK_COMBO(cut,   &kp LG(X), 26 28, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+        // --- 左手横向导航 Combos (Home Row) ---
+        ZMK_COMBO(word_left,  &kp LC(LEFT),  13 14, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW) // A+S
+        ZMK_COMBO(word_down,  &kp LC(DOWN),  14 15, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW) // S+D
+        ZMK_COMBO(word_up,    &kp LC(UP),    13 16, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW) // A+F
+        ZMK_COMBO(word_right, &kp LC(RIGHT), 15 16, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW) // D+F
 
         // --- 垂直上行 combos (顶行+中间行) ---
         // 映射逻辑: 左小指 ! (Q+A), 左无名指 @ (W+S), 左中指 # (E+D), 左食指 $ (R+F) 和 % (T+G)
@@ -250,16 +210,18 @@
 
         // Layer 0: QWERTY 基础层
         default_layer {
+            display-name = "QWE";
             bindings = <
             &kp ESC    &kp Q         &kp W         &kp E        &kp R         &kp T                    &kp Y     &kp U          &kp I       &kp O       &kp P           &bs_del
             &kp TAB    &hml LCTRL A  &hml LALT S   &hml LSHFT D &hml LGUI F   &kp G                    &kp H     &hmr RGUI J    &hmr RSHFT K &hmr RALT L &hmr RCTRL SEMI &kp APOS
-            &kp LSHFT  &kp Z         &kp X         &kp C        &kp V         &kp B                    &kp N     &kp M          &cmscl      &dtcln      &kp FSLH        &kp RSHFT
+            &kp LSHFT  &kp Z         &kp X         &kp C        &kp V         &kp B                    &kp N     &kp M          &kp COMMA   &kp DOT     &kp FSLH        &kp RSHFT
             &kp LCTRL  &caps_word    &kp LEFT_ALT  &kp LEFT_WIN &lt 7 ESCAPE  &lt 5 SPACE  &lt 2 GRAVE &kp ENTER &lt 1 BSPC           &kp RIGHT_ALT  &kp RCTRL
                         >;
         };
 
         // Layer 1: 数字层 (Numword / hold / sticky)
         number_layer {
+            display-name = "NUM";
             bindings = <
 &trans  &kp N1         &kp N2         &kp N3          &kp N4         &kp N5                          &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &hml LCTRL N6  &hml LALT N7   &hml LSHFT N8   &hml LGUI N9   &kp N0                          &trans  &trans  &trans  &trans  &trans  &trans
@@ -270,26 +232,29 @@
 
         // Layer 2: 导航层 (左手 sticky mods + 右手导航)
         nav_layer {
+            display-name = "NAV";
             bindings = <
-&trans  &trans     &trans     &trans      &swapper   &trans                             &kp PG_UP  &trans          &trans     &trans           &trans   &trans
-&trans  &sk LCTRL  &sk LALT   &sk LSHFT   &sk LGUI   &trans                             &kp PG_DN  &kp LEFT        &kp DOWN   &kp UP           &kp RIGHT &trans
-&trans  &kp LC(LEFT) &kp LC(DOWN) &kp LC(UP)   &kp LC(RIGHT) &trans                             &trans     &kp HOME        &trans     &kp END          &trans   &trans
-&trans  &trans     &trans     &trans      &trans     &trans  &trans    &trans  &kp K_CANCEL                                        &trans   &trans
+&trans   &trans    &trans      &trans     &trans     &trans                   &trans     &trans          &trans     &trans   &trans   &trans
+&trans  &sk LCTRL  &sk LALT   &sk LSHFT   &sk LGUI   &trans                   &kp PG_UP  &kp LEFT        &kp DOWN   &kp UP           &kp RIGHT &trans
+&trans  &trans     &trans     &trans      &trans   &trans                     &kp PG_DN     &kp HOME        &trans     &kp END          &trans   &trans
+&trans  &trans     &trans     &trans      &trans     &trans  &trans    &trans  &trans                                        &trans   &trans
             >;
         };
 
         // Layer 3: 功能键层 (右侧附加媒体键及系统键)
         function_layer {
+            display-name = "FUN";
             bindings = <
 &trans  &kp F1  &kp F2   &kp F3   &kp F4   &none                     &none         &kp C_PREV    &kp C_VOL_UP  &kp C_NEXT    &none         &trans
 &trans  &kp F5  &kp F6   &kp F7   &kp F8   &none                     &none         &none         &kp C_VOL_DN  &none         &none         &trans
 &none   &kp F9  &kp F10  &kp F11  &kp F12  &none                     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bootloader
-&trans  &trans  &trans   &trans   &trans   &trans  &trans    &kp C_MUTE &kp C_PP                                         &bt BT_CLR    &bt BT_CLR_ALL
+&trans  &trans  &trans   &trans   &trans   &trans  &trans    &trans &trans                                         &bt BT_CLR    &bt BT_CLR_ALL
             >;
         };
 
         // Layer 4: 自动鼠标层 (轨迹球触发, home row 全透传)
         auto_mouse_layer {
+            display-name = "AUTO_M";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &trans             &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &mkp LCLK         &trans      &hmr_ms RGUI LCLK  &ks_scroll RSHFT 0  &hmr_ms RALT RCLK &trans  &trans
@@ -300,6 +265,7 @@
 
         // Layer 5: 手动鼠标层 (Smart-Mouse combo 或 lt 5 触发)
         mouse_layer {
+            display-name = "MOUSE";
             bindings = <
 &trans   &kp N1          &kp N2          &kp N3         &kp N4         &kp N5                    &kp N6         &kp N7     &kp N8     &kp N9     &kp N0     &trans
 &trans   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &mkp LCLK                 &kp PAGE_UP    &hmr_ms RGUI LCLK  &ks_scroll RSHFT 0     &hmr_ms RALT RCLK  &trans     &trans
@@ -310,9 +276,10 @@
 
         // Layer 6: 滚轮层
         scroll_layer {
+            display-name = "SCROLL";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &trans          &trans      &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &ks_scroll RSHFT 0   &trans      &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &trans          &trans      &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &trans          &trans      &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans  &trans
             >;
@@ -320,10 +287,11 @@
 
         // Layer 7: 精准指针层 (Snipe)
         snipe_layer {
+            display-name = "SNIPE";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                         &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                         &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                         &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                         &trans  &trans     &trans  &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &mkp LCLK                      &trans  &hmr_ms RGUI LCLK  &trans  &hmr_ms RALT RCLK  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                         &trans  &trans     &trans  &trans     &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans       &trans    &trans  &trans                          &trans  &trans
             >;
         };
