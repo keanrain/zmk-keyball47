@@ -6,6 +6,17 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
+// ===================== Combo Macro =====================
+
+#define ZMK_COMBO(name, bind, keypos, layer, timeout, idle) \
+    combo_##name { \
+        bindings = <bind>; \
+        key-positions = <keypos>; \
+        layers = <layer>; \
+        timeout-ms = <timeout>; \
+        require-prior-idle-ms = <idle>; \
+    }
+
 // ===================== 全局行为覆盖 =====================
 
 &lt {
@@ -193,46 +204,37 @@
 
     // ===================== Combos (替代符号层) =====================
 
-#define ZMK_COMBO(name, bind, keypos, layer, timeout, idle) \
-    combo_##name { \
-        bindings = <bind>; \
-        key-positions = <keypos>; \
-        layers = <layer>; \
-        timeout-ms = <timeout>; \
-        require-prior-idle-ms = <idle>; \
-    };
-
     combos {
         compatible = "zmk,combos";
 
         // --- Mouse 层切换 (W+E) ---
-        ZMK_COMBO(mouse_toggle, &tog 5, 2 3, 0 2, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+        ZMK_COMBO(mouse_toggle, &tog 5, 2 3, 0 2, COMBO_TERM_FAST, COMBO_IDLE_FAST);
 
         // --- 左手便捷功能 (X+C, C+V, X+V) ---
-        ZMK_COMBO(copy,  &kp LG(C), 26 27, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-        ZMK_COMBO(paste, &kp LG(V), 27 28, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-        ZMK_COMBO(cut,   &kp LG(X), 26 28, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+        ZMK_COMBO(copy,  &kp LG(C), 26 27, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST);
+        ZMK_COMBO(paste, &kp LG(V), 27 28, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST);
+        ZMK_COMBO(cut,   &kp LG(X), 26 28, 0 2 5, COMBO_TERM_FAST, COMBO_IDLE_FAST);
 
         // --- 垂直上行 combos (顶行+中间行) ---
         // 映射逻辑: 左小指 ! (Q+A), 左无名指 @ (W+S), 左中指 # (E+D), 左食指 $ (R+F) 和 % (T+G)
         // 右食指 ^ (Y+H) 和 & (U+J), 右中指 * (I+K), 右无名指 ( (O+L), 右小指 ) (P+;)
-        ZMK_COMBO(excl,    &kp EXCL,   1 13, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(at,      &kp AT,     2 14, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(hash,    &kp HASH,   3 15, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(dollar,  &kp DLLR,   4 16, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(percent, &kp PRCNT,  5 17, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(caret,   &kp CARET,  6 18, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(amps,    &kp AMPS,   7 19, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(star,    &kp STAR,   8 20, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(lpar,    &kp LPAR,   9 21, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(rpar,    &kp RPAR,  10 22, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(excl,    &kp EXCL,   1 13, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(at,      &kp AT,     2 14, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(hash,    &kp HASH,   3 15, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(dollar,  &kp DLLR,   4 16, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(percent, &kp PRCNT,  5 17, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(caret,   &kp CARET,  6 18, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(amps,    &kp AMPS,   7 19, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(star,    &kp STAR,   8 20, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(lpar,    &kp LPAR,   9 21, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(rpar,    &kp RPAR,  10 22, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
 
         // --- 横向 combos (右手中间/底排，五种基本符号 - = [ ] \) ---
-        ZMK_COMBO(minus,   &kp MINUS, 19 20, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(lbkt,    &kp LBKT,  20 21, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(rbkt,    &kp RBKT,  21 22, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(equal,   &kp EQUAL, 31 32, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(bslh,    &kp BSLH,  32 33, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(minus,   &kp MINUS, 19 20, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(lbkt,    &kp LBKT,  20 21, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(rbkt,    &kp RBKT,  21 22, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(equal,   &kp EQUAL, 31 32, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
+        ZMK_COMBO(bslh,    &kp BSLH,  32 33, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW);
     };
 
     // ===================== 键映射 =====================
@@ -247,7 +249,7 @@
             &kp ESC    &kp Q         &kp W         &kp E        &kp R         &kp T                    &kp Y     &kp U          &kp I       &kp O       &kp P           &bs_del
             &kp TAB    &hml LCTRL A  &hml LALT S   &hml LSHFT D &hml LGUI F   &kp G                    &kp H     &hmr RGUI J    &hmr RSHFT K &hmr RALT L &hmr RCTRL SEMI &kp APOS
             &kp LSHFT  &kp Z         &kp X         &kp C        &kp V         &kp B                    &kp N     &kp M          &cmscl      &dtcln      &kp FSLH        &kp RSHFT
-            &kp LCTRL  &caps_word    &kp LEFT_ALT  &kp LEFT_WIN &lt 7 ESCAPE  &lt 5 SPACE  &lt 2 GRAVE &kp ENTER &lt 1 0              &kp RIGHT_ALT  &kp RCTRL
+            &kp LCTRL  &caps_word    &kp LEFT_ALT  &kp LEFT_WIN &lt 7 ESCAPE  &lt 5 SPACE  &lt 2 GRAVE &kp ENTER &lt 1 BSPC           &kp RIGHT_ALT  &kp RCTRL
                         >;
         };
 
@@ -268,7 +270,7 @@
             bindings = <
 &trans  &trans     &trans     &trans      &swapper   &trans                             &kp PG_UP  &trans          &trans     &trans           &trans   &trans
 &trans  &sk LCTRL  &sk LALT   &sk LSHFT   &sk LGUI   &trans                             &kp PG_DN  &kp LEFT        &kp DOWN   &kp UP           &kp RIGHT &trans
-&trans  &trans     &trans     &trans      &trans     &trans                             &trans     &kp HOME        &trans     &kp END          &trans   &trans
+&trans  &kp LC(LEFT) &kp LC(DOWN) &kp LC(UP)   &kp LC(RIGHT) &trans                             &trans     &kp HOME        &trans     &kp END          &trans   &trans
 &trans  &trans     &trans     &trans      &trans     &trans  &trans    &trans  &kp K_CANCEL                                        &trans   &trans
             >;
         };
