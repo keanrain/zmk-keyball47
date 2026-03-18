@@ -188,7 +188,7 @@
         smart_scroll: smart_scroll {
             compatible = "zmk,behavior-tri-state";
             #binding-cells = <0>;
-            bindings = <&tog 6>, <&tog 6>;
+            bindings = <&tog 6>, <&none>, <&tog 6>;
             // 仅忽略 K 键自身，其余任何按键均会触发退出
             ignored-key-positions = <20>;
         };
