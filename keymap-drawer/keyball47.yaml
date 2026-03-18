@@ -200,9 +200,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {t: '&mkp LCLK', h: RGUI}
+  - {t: '&tap_smart_scroll', h: RSHFT}
+  - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -213,7 +213,7 @@ layers:
   - '&mkp LCLK'
   - {t: ▽, type: trans}
   - {t: '&mkp LCLK', h: RGUI}
-  - '&smart_scroll'
+  - {t: '&tap_smart_scroll', h: RSHFT}
   - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -261,7 +261,7 @@ layers:
   - '&mkp LCLK'
   - PAGE UP
   - {t: '&mkp LCLK', h: RGUI}
-  - '&smart_scroll'
+  - {t: '&tap_smart_scroll', h: RSHFT}
   - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -308,9 +308,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&smart_scroll'
-  - {t: ▽, type: trans}
+  - {t: '&mkp LCLK', h: RGUI}
+  - {t: '&tap_smart_scroll', h: RSHFT}
+  - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
