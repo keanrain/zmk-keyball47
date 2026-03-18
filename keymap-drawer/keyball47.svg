@@ -124,8 +124,8 @@ path.combo {
 }
 /* End Tabler Icons Cleanup */
 </style>
-<g transform="translate(30, 0)" class="layer-QWRT">
-<text x="0" y="28" class="label" id="QWRT">QWRT:</text>
+<g transform="translate(30, 0)" class="layer-default">
+<text x="0" y="28" class="label" id="default">default:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -305,20 +305,20 @@ path.combo {
 <g transform="translate(266, 224)" class="key keypos-40">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">ESCAPE</text>
-<a href="#SNIPE">
-<text x="0" y="24" class="key hold layer-activator">SNIPE</text>
+<a href="#snipe">
+<text x="0" y="24" class="key hold layer-activator">snipe</text>
 </a></g>
 <g transform="translate(331, 228) rotate(10.0)" class="key keypos-41">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">SPACE</text>
-<a href="#MOUSE">
-<text x="0" y="24" class="key hold layer-activator">MOUSE</text>
+<a href="#mouse">
+<text x="0" y="24" class="key hold layer-activator">mouse</text>
 </a></g>
 <g transform="translate(395, 246) rotate(20.0)" class="key keypos-42">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">`</text>
-<a href="#NAV">
-<text x="0" y="24" class="key hold layer-activator">NAV</text>
+<a href="#nav">
+<text x="0" y="24" class="key hold layer-activator">nav</text>
 </a></g>
 <g transform="translate(478, 246) rotate(-20.0)" class="key keypos-43">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -327,8 +327,8 @@ path.combo {
 <g transform="translate(536, 233) rotate(-10.0)" class="key keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">BSPC</text>
-<a href="#NUM">
-<text x="0" y="24" class="key hold layer-activator">NUM</text>
+<a href="#number">
+<text x="0" y="24" class="key hold layer-activator">number</text>
 </a></g>
 <g transform="translate(756, 224)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -416,8 +416,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 338)" class="layer-NUM">
-<text x="0" y="28" class="label" id="NUM">NUM:</text>
+<g transform="translate(30, 338)" class="layer-number">
+<text x="0" y="28" class="label" id="number">number:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -672,8 +672,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 676)" class="layer-NAV">
-<text x="0" y="28" class="label" id="NAV">NAV:</text>
+<g transform="translate(30, 676)" class="layer-nav">
+<text x="0" y="28" class="label" id="nav">nav:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -952,8 +952,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 1015)" class="layer-FUN">
-<text x="0" y="28" class="label" id="FUN">FUN:</text>
+<g transform="translate(30, 1015)" class="layer-function">
+<text x="0" y="28" class="label" id="function">function:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -1148,8 +1148,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 1353)" class="layer-AUTO_M">
-<text x="0" y="28" class="label" id="AUTO_M">AUTO_M:</text>
+<g transform="translate(30, 1353)" class="layer-auto_mouse">
+<text x="0" y="28" class="label" id="auto_mouse">auto_mouse:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -1349,8 +1349,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 1691)" class="layer-MOUSE">
-<text x="0" y="28" class="label" id="MOUSE">MOUSE:</text>
+<g transform="translate(30, 1691)" class="layer-mouse">
+<text x="0" y="28" class="label" id="mouse">mouse:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -1555,13 +1555,13 @@ path.combo {
 </g>
 <g transform="translate(536, 233) rotate(-10.0)" class="key keypos-44">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#FUN">
-<text x="0" y="0" class="key tap layer-activator">FUN</text>
+<a href="#function">
+<text x="0" y="0" class="key tap layer-activator"><tspan style="font-size: 88%">function</tspan></text>
 </a></g>
 <g transform="translate(756, 224)" class="key keypos-45">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#MOUSE">
-<text x="0" y="0" class="key tap layer-activator">MOUSE</text>
+<a href="#mouse">
+<text x="0" y="0" class="key tap layer-activator">mouse</text>
 </a><text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(812, 224)" class="key trans keypos-46">
@@ -1584,8 +1584,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 2029)" class="layer-SCROLL">
-<text x="0" y="28" class="label" id="SCROLL">SCROLL:</text>
+<g transform="translate(30, 2029)" class="layer-scroll">
+<text x="0" y="28" class="label" id="scroll">scroll:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -1777,8 +1777,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 2368)" class="layer-SNIPE">
-<text x="0" y="28" class="label" id="SNIPE">SNIPE:</text>
+<g transform="translate(30, 2368)" class="layer-snipe">
+<text x="0" y="28" class="label" id="snipe">snipe:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 56)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
