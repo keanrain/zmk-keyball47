@@ -431,23 +431,14 @@ combos:
   k: '-'
   l: [QWRT, NUM, NAV]
 - p: [20, 21]
-  k: '='
-  l: [QWRT, NUM, NAV]
-- p: [21, 22]
   k: '['
   l: [QWRT, NUM, NAV]
-- p: [31, 32]
+- p: [21, 22]
   k: ']'
+  l: [QWRT, NUM, NAV]
+- p: [31, 32]
+  k: '='
   l: [QWRT, NUM, NAV]
 - p: [32, 33]
   k: \
-  l: [QWRT, NUM, NAV]
-- p: [20, 21]
-  k: '{'
-  l: [QWRT, NUM, NAV]
-- p: [21, 22]
-  k: '}'
-  l: [QWRT, NUM, NAV]
-- p: [32, 33]
-  k: '|'
   l: [QWRT, NUM, NAV]
