@@ -45,7 +45,7 @@ layers:
   - {t: SPACE, h: MOUSE}
   - {t: '`', h: NAV}
   - ENTER
-  - {t: '0', h: NUM}
+  - {t: BSPC, h: NUM}
   - RIGHT ALT
   - RCTRL
   NUM:
@@ -122,10 +122,10 @@ layers:
   - RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Ctl+LEFT
+  - Ctl+DOWN
+  - Ctl+UP
+  - Ctl+RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - HOME
