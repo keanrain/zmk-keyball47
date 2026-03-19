@@ -385,69 +385,75 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
+- p: [25, 26]
+  k: Gui+Z
+  l: [QWE, MOUSE]
+- p: [25, 28]
+  k: Gui+Sft+Z
+  l: [QWE, MOUSE]
 - p: [26, 27]
   k: Gui+C
-  l: [QWE, NAV, MOUSE]
+  l: [QWE, MOUSE]
 - p: [27, 28]
   k: Gui+V
-  l: [QWE, NAV, MOUSE]
+  l: [QWE, MOUSE]
 - p: [26, 28]
   k: Gui+X
-  l: [QWE, NAV, MOUSE]
+  l: [QWE, MOUSE]
 - p: [13, 14]
   k: Ctl+LEFT
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [14, 15]
-  k: Ctl+DOWN
-  l: [QWE, NUM, NAV]
-- p: [13, 16]
   k: Ctl+UP
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
+- p: [13, 16]
+  k: Ctl+DOWN
+  l: [QWE, NUM]
 - p: [15, 16]
   k: Ctl+RIGHT
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [1, 13]
   k: '!'
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [2, 14]
   k: '@'
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [3, 15]
   k: '#'
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [4, 16]
   k: $
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [5, 17]
   k: '%'
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [6, 18]
   k: ^
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [7, 19]
   k: '&'
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [8, 20]
   k: '*'
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [9, 21]
   k: (
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [10, 22]
   k: )
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [19, 20]
   k: '-'
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [20, 21]
   k: '['
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [21, 22]
   k: ']'
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [31, 32]
   k: '='
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
 - p: [32, 33]
   k: \
-  l: [QWE, NUM, NAV]
+  l: [QWE, NUM]
