@@ -109,7 +109,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&swapper'
   - {t: LCTRL, h: sticky}
   - {t: LALT, h: sticky}
   - {t: LSHFT, h: sticky}
