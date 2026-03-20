@@ -213,7 +213,7 @@ layers:
   - '&mkp LCLK'
   - {t: ▽, type: trans}
   - {t: '&mkp LCLK', h: RGUI}
-  - {t: '&tap_smart_scroll', h: RSHFT}
+  - {t: SCROLL, h: RSHFT}
   - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -261,7 +261,7 @@ layers:
   - '&mkp LCLK'
   - PAGE UP
   - {t: '&mkp LCLK', h: RGUI}
-  - {t: '&tap_smart_scroll', h: RSHFT}
+  - {t: SCROLL, h: RSHFT}
   - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -289,53 +289,53 @@ layers:
   - {t: MOUSE, h: toggle}
   - {t: ▽, type: trans}
   SCROLL:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
   SNIPE:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
