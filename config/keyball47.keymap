@@ -158,29 +158,15 @@
             ignored-key-positions = <14 15 16>; // 允许其他修饰键
         };
 
-        smart_scroll: smart_scroll {
-            compatible = "zmk,behavior-auto-layer";
-            #binding-cells = <1>;
-            continue-list = <>; // 空白白名单：敲击任意按键都会立刻恢复基础层，并把刚敲击的键完整输出
-        };
-
         // 鼠标层专用的 K 键行为：长按 Shift，短按滚轮切换
         ks_scroll: ks_scroll {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
-            bindings = <&kp>, <&tap_smart_scroll>;
+            bindings = <&kp>, <&tog>;
         };
-        };
-
-        macros {
-        tap_smart_scroll: tap_smart_scroll {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&smart_scroll 6>;
-        };
-        };
+    };
 
         // ===================== Combos (替代符号层) =====================
 
@@ -276,7 +262,7 @@
             display-name = "AUTO_M";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &trans             &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &mkp LCLK         &trans      &hmr_ms_j RGUI LCLK  &ks_scroll RSHFT 0  &hmr_ms RALT RCLK &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &mkp LCLK         &trans      &hmr_ms_j RGUI LCLK  &ks_scroll RSHFT 6  &hmr_ms RALT RCLK &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &trans             &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                         &trans  &trans
             >;
@@ -287,7 +273,7 @@
             display-name = "MOUSE";
             bindings = <
 &trans   &kp N1          &kp N2          &kp N3         &kp N4         &kp N5                    &kp N6         &kp N7     &kp N8     &kp N9     &kp N0     &trans
-&trans   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &mkp LCLK                 &kp PAGE_UP    &hmr_ms_j RGUI LCLK  &ks_scroll RSHFT 0     &hmr_ms RALT RCLK  &trans     &trans
+&trans   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &mkp LCLK                 &kp PAGE_UP    &hmr_ms_j RGUI LCLK  &ks_scroll RSHFT 6     &hmr_ms RALT RCLK  &trans     &trans
 &trans   &kp LG(LEFT)    &kp LA(LEFT)    &kp LA(RIGHT)  &kp LG(RIGHT)  &trans                    &kp PAGE_DOWN  &trans     &trans     &trans     &trans     &trans
 &trans   &trans          &trans          &trans         &trans         &trans  &trans    &trans  &mo 3                                         &tog 5     &trans
             >;
@@ -297,10 +283,10 @@
         scroll_layer {
             display-name = "SCROLL";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &trans          &trans      &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &trans          &trans      &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans      &trans          &trans      &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans  &trans
+&tog 6  &tog 6  &tog 6  &tog 6  &tog 6  &tog 6                    &tog 6  &tog 6      &tog 6          &tog 6      &tog 6  &tog 6
+&tog 6  &tog 6  &tog 6  &tog 6  &tog 6  &tog 6                    &tog 6  &tog 6      &tog 6          &tog 6      &tog 6  &tog 6
+&tog 6  &tog 6  &tog 6  &tog 6  &tog 6  &tog 6                    &tog 6  &tog 6      &tog 6          &tog 6      &tog 6  &tog 6
+&tog 6  &tog 6  &tog 6  &tog 6  &tog 6  &tog 6  &tog 6    &tog 6  &tog 6                          &tog 6  &tog 6
             >;
         };
 
