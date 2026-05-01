@@ -15,6 +15,7 @@
         bindings = <BIND>; \
         layers = <LAYER>; \
         require-prior-idle-ms = <IDLE>; \
+        slow-release; \
     };
 
 // ===================== 全局行为覆盖 =====================
@@ -25,16 +26,8 @@
     quick-tap-ms = <150>;
 };
 
-&mt {
-    tapping-term-ms = <200>;
-    flavor = "tap-preferred";
-    quick-tap-ms = <150>;
-    require-prior-idle-ms = <175>;
-    hold-trigger-key-positions = <0>; // 用于导航键
-};
-
 &sk {
-    release-after-ms = <900>;
+    release-after-ms = <1200>;
     quick-release;
 };
 
@@ -48,8 +41,10 @@
 
 #define COMBO_TERM_FAST 30
 #define COMBO_TERM_SLOW 40
+#define COMBO_TERM_HORIZ 55
 #define COMBO_IDLE_FAST 150
 #define COMBO_IDLE_SLOW 50
+#define COMBO_IDLE_HORIZ 150
 
 / {
     // ===================== 行为定义 =====================
@@ -134,12 +129,6 @@
             hold-trigger-on-release;
         };
 
-        swapper: swapper {
-            compatible = "zmk,behavior-tri-state";
-            #binding-cells = <0>;
-            bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
-            ignored-key-positions = <14 15 16>; // 允许其他修饰键
-        };
 
         smart_scroll: smart_scroll {
             compatible = "zmk,behavior-auto-layer";
@@ -155,17 +144,17 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&tap_smart_scroll>;
         };
-        };
+    };
 
-        macros {
+    macros {
         tap_smart_scroll: tap_smart_scroll {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&smart_scroll 6>;
         };
-        };
+    };
 
-        // ===================== Combos (替代符号层) =====================
+    // ===================== Combos (替代符号层) =====================
 
     combos {
         compatible = "zmk,combos";
@@ -196,11 +185,11 @@
         ZMK_COMBO(rpar,    &kp RPAR,  10 22, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
 
         // --- 横向 combos (右手中间/底排，五种基本符号 - = [ ] \) ---
-        ZMK_COMBO(minus,   &kp MINUS, 19 20, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(lbkt,    &kp LBKT,  20 21, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(rbkt,    &kp RBKT,  21 22, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(equal,   &kp EQUAL, 31 32, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
-        ZMK_COMBO(bslh,    &kp BSLH,  32 33, 0 1 2, COMBO_TERM_SLOW, COMBO_IDLE_SLOW)
+        ZMK_COMBO(minus,   &kp MINUS, 19 20, 0 1 2, COMBO_TERM_HORIZ, COMBO_IDLE_HORIZ)
+        ZMK_COMBO(lbkt,    &kp LBKT,  20 21, 0 1 2, COMBO_TERM_HORIZ, COMBO_IDLE_HORIZ)
+        ZMK_COMBO(rbkt,    &kp RBKT,  21 22, 0 1 2, COMBO_TERM_HORIZ, COMBO_IDLE_HORIZ)
+        ZMK_COMBO(equal,   &kp EQUAL, 31 32, 0 1 2, COMBO_TERM_HORIZ, COMBO_IDLE_HORIZ)
+        ZMK_COMBO(bslh,    &kp BSLH,  32 33, 0 1 2, COMBO_TERM_HORIZ, COMBO_IDLE_HORIZ)
     };
 
     // ===================== 键映射 =====================
@@ -258,7 +247,7 @@
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &trans             &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &mkp LCLK         &trans      &hmr_ms RGUI LCLK  &ks_scroll RSHFT 0  &hmr_ms RALT RCLK &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &trans             &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &trans      &trans             &mkp LCLK           &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                         &trans  &trans
             >;
         };
@@ -269,8 +258,8 @@
             bindings = <
 &trans   &kp N1          &kp N2          &kp N3         &kp N4         &kp N5                    &kp N6         &kp N7     &kp N8     &kp N9     &kp N0     &trans
 &trans   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW   &kp RIGHT      &mkp LCLK                 &kp PAGE_UP    &hmr_ms RGUI LCLK  &ks_scroll RSHFT 0     &hmr_ms RALT RCLK  &trans     &trans
-&trans   &kp LG(LEFT)    &kp LA(LEFT)    &kp LA(RIGHT)  &kp LG(RIGHT)  &trans                    &kp PAGE_DOWN  &trans     &trans     &trans     &trans     &trans
-&trans   &trans          &trans          &trans         &trans         &trans  &trans    &trans  &mo 3                                         &tog 5     &trans
+&trans   &kp LG(LEFT)    &kp LA(LEFT)    &kp LA(RIGHT)  &kp LG(RIGHT)  &trans                    &kp PAGE_DOWN  &trans     &mkp LCLK    &trans     &trans     &trans
+&trans   &trans          &trans          &trans         &trans         &trans  &trans    &trans  &mo 3                                         &trans     &trans
             >;
         };
 
