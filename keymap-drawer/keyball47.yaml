@@ -1,6 +1,6 @@
 layout: {zmk_keyboard: keyball47}
 layers:
-  default:
+  QWE:
   - ESC
   - Q
   - W
@@ -33,22 +33,22 @@ layers:
   - B
   - N
   - M
-  - {t: ',', s: ;}
-  - {t: ., s: ':'}
+  - ','
+  - .
   - /
   - RSHFT
   - LCTRL
   - '&caps_word'
   - LEFT ALT
   - LEFT WIN
-  - {t: ESCAPE, h: snipe}
-  - {t: SPACE, h: mouse}
-  - {t: '`', h: nav}
+  - {t: ESCAPE, h: SNIPE}
+  - {t: SPACE, h: MOUSE}
+  - {t: '`', h: NAV}
   - ENTER
-  - {t: BSPC, h: number}
+  - {t: BSPC, h: NUM}
   - RIGHT ALT
   - RCTRL
-  number:
+  NUM:
   - {t: ▽, type: trans}
   - '1'
   - '2'
@@ -96,38 +96,38 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  nav:
+  NAV:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '&swapper'
-  - {t: ▽, type: trans}
-  - PG UP
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {t: LCTRL, h: sticky}
   - {t: LALT, h: sticky}
   - {t: LSHFT, h: sticky}
   - {t: LGUI, h: sticky}
   - {t: ▽, type: trans}
-  - PG DN
+  - PG UP
   - LEFT
   - DOWN
   - UP
   - RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Ctl+LEFT
-  - Ctl+DOWN
-  - Ctl+UP
-  - Ctl+RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - PG DN
   - HOME
   - {t: ▽, type: trans}
   - END
@@ -141,10 +141,10 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
-  - CANCEL
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  function:
+  - {t: ▽, type: trans}
+  FUN:
   - {t: ▽, type: trans}
   - F1
   - F2
@@ -188,11 +188,11 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - MUTE
-  - PP
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - BT CLR
   - BT CLR ALL
-  auto_mouse:
+  AUTO_M:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -213,7 +213,7 @@ layers:
   - '&mkp LCLK'
   - {t: ▽, type: trans}
   - {t: '&mkp LCLK', h: RGUI}
-  - {t: '&tap_smart_scroll', h: RSHFT}
+  - {t: SCROLL, h: RSHFT}
   - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -240,7 +240,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  mouse:
+  MOUSE:
   - {t: ▽, type: trans}
   - '1'
   - '2'
@@ -261,7 +261,7 @@ layers:
   - '&mkp LCLK'
   - PAGE UP
   - {t: '&mkp LCLK', h: RGUI}
-  - {t: '&tap_smart_scroll', h: RSHFT}
+  - {t: SCROLL, h: RSHFT}
   - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -285,10 +285,58 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - function
-  - {t: mouse, h: toggle}
+  - FUN
+  - {t: MOUSE, h: toggle}
   - {t: ▽, type: trans}
-  scroll:
+  SCROLL:
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  - {t: SCROLL, h: toggle}
+  SNIPE:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -306,59 +354,11 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '&mkp LCLK'
   - {t: ▽, type: trans}
+  - {t: '&mkp LCLK', h: RGUI}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: '&tap_smart_scroll', h: RSHFT}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  snipe:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -385,57 +385,75 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
 combos:
+- p: [25, 26]
+  k: Gui+Z
+  l: [QWE, MOUSE]
+- p: [25, 28]
+  k: Gui+Sft+Z
+  l: [QWE, MOUSE]
 - p: [26, 27]
   k: Gui+C
-  l: [default, nav, mouse]
+  l: [QWE, MOUSE]
 - p: [27, 28]
   k: Gui+V
-  l: [default, nav, mouse]
+  l: [QWE, MOUSE]
 - p: [26, 28]
   k: Gui+X
-  l: [default, nav, mouse]
+  l: [QWE, MOUSE]
+- p: [13, 14]
+  k: Ctl+LEFT
+  l: [QWE, NUM]
+- p: [14, 15]
+  k: Ctl+UP
+  l: [QWE, NUM]
+- p: [13, 16]
+  k: Ctl+DOWN
+  l: [QWE, NUM]
+- p: [15, 16]
+  k: Ctl+RIGHT
+  l: [QWE, NUM]
 - p: [1, 13]
   k: '!'
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [2, 14]
   k: '@'
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [3, 15]
   k: '#'
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [4, 16]
   k: $
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [5, 17]
   k: '%'
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [6, 18]
   k: ^
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [7, 19]
   k: '&'
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [8, 20]
   k: '*'
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [9, 21]
   k: (
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [10, 22]
   k: )
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [19, 20]
   k: '-'
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [20, 21]
   k: '['
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [21, 22]
   k: ']'
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [31, 32]
   k: '='
-  l: [default, number, nav]
+  l: [QWE, NUM]
 - p: [32, 33]
   k: \
-  l: [default, number, nav]
+  l: [QWE, NUM]
