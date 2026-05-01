@@ -113,6 +113,13 @@
             hold-trigger-on-release;
         };
 
+        // [Fix 2] swapper 保留定义，已移入 Nav 层 TAB 位置使用
+        swapper: swapper {
+            compatible = "zmk,behavior-tri-state";
+            #binding-cells = <0>;
+            bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
+            ignored-key-positions = <14 15 16>;
+        };
 
         smart_scroll: smart_scroll {
             compatible = "zmk,behavior-auto-layer";
@@ -256,7 +263,7 @@
             display-name = "SNIPE";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                         &trans  &trans                &trans  &trans             &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &mkp LCLK                      &trans  &hmr_ms_j RGUI LCLK  &trans  &hmr_ms RALT RCLK  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &mkp LCLK                      &trans  &hmr_ms RGUI LCLK  &trans  &hmr_ms RALT RCLK  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                         &trans  &trans                &trans  &trans             &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans       &trans    &trans  &trans                                                   &trans  &trans
             >;
