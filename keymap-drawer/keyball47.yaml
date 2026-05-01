@@ -213,7 +213,7 @@ layers:
   - '&mkp LCLK'
   - {t: ▽, type: trans}
   - {t: '&mkp LCLK', h: RGUI}
-  - {t: SCROLL, h: RSHFT}
+  - {t: QWE, h: RSHFT}
   - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -225,7 +225,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mkp LCLK'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -261,7 +261,7 @@ layers:
   - '&mkp LCLK'
   - PAGE UP
   - {t: '&mkp LCLK', h: RGUI}
-  - {t: SCROLL, h: RSHFT}
+  - {t: QWE, h: RSHFT}
   - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -273,7 +273,7 @@ layers:
   - {t: ▽, type: trans}
   - PAGE DOWN
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mkp LCLK'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -286,7 +286,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - FUN
-  - {t: MOUSE, h: toggle}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   SCROLL:
   - {t: SCROLL, h: toggle}
@@ -356,7 +356,7 @@ layers:
   - {t: ▽, type: trans}
   - '&mkp LCLK'
   - {t: ▽, type: trans}
-  - {t: '&mkp LCLK', h: RGUI}
+  - '&hmr_ms_j RGUI LCLK'
   - {t: ▽, type: trans}
   - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
@@ -444,16 +444,16 @@ combos:
   l: [QWE, NUM]
 - p: [19, 20]
   k: '-'
-  l: [QWE, NUM]
+  l: [QWE, NUM, NAV]
 - p: [20, 21]
   k: '['
-  l: [QWE, NUM]
+  l: [QWE, NUM, NAV]
 - p: [21, 22]
   k: ']'
-  l: [QWE, NUM]
+  l: [QWE, NUM, NAV]
 - p: [31, 32]
   k: '='
-  l: [QWE, NUM]
+  l: [QWE, NUM, NAV]
 - p: [32, 33]
   k: \
-  l: [QWE, NUM]
+  l: [QWE, NUM, NAV]
