@@ -356,7 +356,7 @@ layers:
   - {t: ▽, type: trans}
   - '&mkp LCLK'
   - {t: ▽, type: trans}
-  - '&hmr_ms_j RGUI LCLK'
+  - {t: '&mkp LCLK', h: RGUI}
   - {t: ▽, type: trans}
   - {t: '&mkp RCLK', h: RALT}
   - {t: ▽, type: trans}
